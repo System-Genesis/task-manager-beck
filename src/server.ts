@@ -1,12 +1,18 @@
-import app from './app';
-require('dotenv').config();
+import express, { Application } from 'express';
+import config from './config/config';
+import routers from './router';
 
-const start = async () => {
-  console.log(process.env.PORT);
+const PORT = config.port;
 
-  app.listen(process.env.PORT || 3000, () => {
-    console.log('Listening on port: ' + process.env.PORT || 3000);
+export const app: Application = express();
+
+function server() {
+  routers(app);
+
+  app.listen(PORT, () => {
+    console.log(`listening at http://localhost:${PORT}`);
   });
-};
+}
 
-start().catch((e) => console.log(e));
+export default server;
+
