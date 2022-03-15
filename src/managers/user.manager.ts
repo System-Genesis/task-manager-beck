@@ -12,3 +12,5 @@ export const getUser = async (name: string, password: string) => {
   );
   return user;
 };
+
+

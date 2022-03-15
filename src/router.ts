@@ -1,6 +1,7 @@
 import express, { Request, Response, Application } from 'express';
 import loginRouter from './routers/login.router';
 import usersRouter from './routers/users.router';
+import getReqRouter from './routers/getReq.router';
 
 import morgan from 'morgan';
 import cors from 'cors';
@@ -12,6 +13,7 @@ function routers(app: Application) {
 
   app.use('/login', loginRouter);
   app.use('/users', usersRouter);
+  app.use('/action', getReqRouter);
 
   app.use('/isAlive', (_req: Request, res: Response) => {
     res.status(200).send('alive');
