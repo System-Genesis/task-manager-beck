@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import * as userManager from '../managers/user.manager'
+import userManager from '../managers/user.manager'
 import userInterface from '../interfaces/user.interface'
 
 
@@ -27,10 +27,6 @@ const getUserByName = async (req: Request, res: Response) => {
   try {
     const userName: string = req.body.name;
     const password: string = req.body.password;
-
-    console.log(userName);
-    
-
     const answer: userInterface = await userManager.getUser(
       userName, password
     );

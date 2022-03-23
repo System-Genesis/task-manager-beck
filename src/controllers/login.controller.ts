@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getUser } from '../managers/user.manager';
+import userManager from '../managers/user.manager';
 import userInterface from '../interfaces/user.interface';
 
 // POST http://localhost:3010/login/
@@ -7,7 +7,7 @@ const login = async (req: Request, res: Response) => {
   const team: string = req.body.team;
   const password: string = req.body.password;
   try {
-    const user: userInterface = await getUser(team, password);
+    const user: userInterface = await userManager.getUser(team, password);
 
     if (user) return res.send(user);
 
