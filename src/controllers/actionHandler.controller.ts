@@ -6,7 +6,7 @@ import requestHandler from '../managers/actionHandler.manager';
 const actionHandler = async (req: Request, res: Response) => {
   try {
     const url: string = req.body.url;
-    const requestType: string = req.body.reqType;
+    const requestType: string = req.body.reqType;    
 
     const info = await requestHandler.buildUrl(requestType, url);
     res.send(info.data);
