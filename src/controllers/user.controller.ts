@@ -3,7 +3,7 @@ import userManager from '../managers/user.manager'
 import userInterface from '../interfaces/user.interface'
 
 
-// POST http://localhost:3010/users/
+// POST http://localhost:3020/users/
 const addUser = async (req: Request, res: Response) => {
   try {
     const nameQuery: string = req.body.name;
@@ -23,6 +23,7 @@ const addUser = async (req: Request, res: Response) => {
   }
 };
 
+// GET http://localhost:3020/users/
 const getUserByName = async (req: Request, res: Response) => {
   try {
     const userName: string = req.body.name;

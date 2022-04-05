@@ -1,13 +1,30 @@
 import axios from 'axios';
 
-const baseUrl = 'http://tracking.branch-yesodot.org/api/'
+const baseUrl = 'http://tracking.branch-yesodot.org/api/';
 
-const buildUrl = async (requestType: string, url: string) => {
-    const fullUrl = `${baseUrl}${url}`
-    console.log(fullUrl);
+const buildRequest = async (
+  requestType: string,
+  url: string,
+  requestParams: any
+) => {
+  const fullUrl = `${baseUrl}${url}`;
+
+  const request = requestParams
+    ? await axios[requestType](fullUrl, requestParams)
+    : await axios[requestType](fullUrl);
     
-    const request = await axios[requestType](fullUrl)
-    return request;
+  console.log(request);
+  return request;
 };
-  
-export default { buildUrl }
+
+// const setDaily = async (hour: string[], minute: string[]) => {
+
+//     const postDaily = await axios.post('http://tracking.branch-yesodot.org/api/daily',{
+//         hour,minute
+//     })
+//     console.log(hour, minute);
+
+//     return postDaily;
+// };
+
+export default { buildRequest };

@@ -9,7 +9,7 @@ const managerData = [
           source: ['aka', 'souf'],
         },
         name: 'splitter/source/:source',
-        type: 'select',
+        select: 'select',
       },
       {
         title: 'all from splitter',
@@ -24,7 +24,7 @@ const managerData = [
           source: ['aka', 'souf'],
         },
         name: 'splitter/identifier/:identifier/source/:source',
-        type: 'select',
+        select: 'select',
       },
       {
         title: 'identifier from splitter',
@@ -39,7 +39,7 @@ const managerData = [
           source: ['aka', 'sf_name'],
         },
         name: 'mergedUsers/source/:source',
-        type: 'select',
+        select: 'select',
       },
       {
         title: 'all from mergedUsers',
@@ -73,7 +73,7 @@ const managerData = [
           source: ['aka', 'souf'],
         },
         name: 'splitter/source/:source',
-        type: 'select',
+        select: 'select',
       },
       {
         title: 'all from splitter',
@@ -87,7 +87,7 @@ const managerData = [
           source: ['aka', 'souf'],
         },
         name: 'splitter/identifier/:identifier/source/:source',
-        type: 'select',
+        select: 'select',
       },
       {
         title: 'identifier from splitter',
@@ -102,7 +102,7 @@ const managerData = [
           source: ['aka', 'souf'],
         },
         name: 'recovery/source/:source',
-        type: 'select',
+        select: 'select',
       },
       {
         title: 'all from recovery',
@@ -130,7 +130,8 @@ const managerData = [
           dailyMinute: ['00', '05', '10', '15', '20', '25', '30', '40', '45', '50', '55'],
         },
         name: 'daily/',
-        type: 'multiple',
+        select: 'multiple',
+        type: 'body',
       },
     ],
   },

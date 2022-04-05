@@ -3,7 +3,7 @@ import userManager from '../managers/user.manager';
 import userInterface from '../interfaces/user.interface';
 
 
-// POST http://localhost:3010/login/
+// POST http://localhost:3020/login/
 const login = async (req: Request, res: Response) => {
   const team: string = req.body.team;
   const password: string = req.body.password;
