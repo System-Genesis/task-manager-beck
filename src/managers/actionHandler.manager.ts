@@ -12,7 +12,7 @@ const buildRequest = async (
   const request = requestParams
     ? await axios[requestType](fullUrl, requestParams)
     : await axios[requestType](fullUrl);
-    
+
   console.log(request);
   return request;
 };

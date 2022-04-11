@@ -9,6 +9,7 @@ export const userData = [
           source: ['aka', 'souf'],
         },
         name: 'splitter/source/:source',
+        select: 'select',
       },
       {
         title: 'all from splitter',
@@ -23,6 +24,7 @@ export const userData = [
           source: ['aka', 'souf'],
         },
         name: 'splitter/identifier/:identifier/source/:source',
+        select: 'select',
       },
       {
         title: 'identifier from splitter',
@@ -37,6 +39,7 @@ export const userData = [
           source: ['aka', 'souf', 'sf_name'],
         },
         name: 'mergedUsers/source/:source',
+        select: 'select',
       },
       {
         title: 'all from mergedUsers',
