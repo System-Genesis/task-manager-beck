@@ -15,24 +15,8 @@ const actionHandler = async (req: Request, res: Response) => {
     console.log(info.data);
     
   } catch (err: any) {
-    res.status(500).json({ message: err.message });
+    res.status(err?.response?.status || 500).json({ message: err.message });
   }
 };
-
-// // POST http://localhost:3020/action/daily
-// const postDaily = async (req: Request, res: Response) => {
-//   try {
-//     const hour: string[] = req.body.dailyHour;
-//     const minute: string[] = req.body.dailyMinute;
-
-//     console.log(hour, minute);
-    
-//     const answer: any = await requestHandler.setDaily(hour, minute);
-//     res.send(answer.data);
-    
-//   } catch (err: any) {
-//     res.status(500).json({ message: err.message });
-//   }
-// };
 
 export default { actionHandler };

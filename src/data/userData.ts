@@ -6,7 +6,14 @@ export const userData = [
       {
         title: 'source from splitter',
         params: {
-          source: ['aka', 'souf'],
+          source: [
+            'aka',
+            'sf_name',
+            'es_name',
+            'city_name',
+            'adnn_name',
+            'mir_name',
+          ],
         },
         name: 'splitter/source/:source',
         select: 'select',
@@ -20,8 +27,15 @@ export const userData = [
       {
         title: 'identifier & source from splitter',
         params: {
-          identifier: 'identifier',
-          source: ['aka', 'souf'],
+          identifier: 'number',
+          source: [
+            'aka',
+            'sf_name',
+            'es_name',
+            'city_name',
+            'adnn_name',
+            'mir_name',
+          ],
         },
         name: 'splitter/identifier/:identifier/source/:source',
         select: 'select',
@@ -29,14 +43,21 @@ export const userData = [
       {
         title: 'identifier from splitter',
         params: {
-          identifier: 'identifier',
+          identifier: 'number',
         },
         name: 'splitter/identifier/:identifier',
       },
       {
         title: 'source from mergedUsers',
         params: {
-          source: ['aka', 'souf', 'sf_name'],
+          source: [
+            'aka',
+            'sf_name',
+            'es_name',
+            'city_name',
+            'adnn_name',
+            'mir_name',
+          ],
         },
         name: 'mergedUsers/source/:source',
         select: 'select',
@@ -50,12 +71,12 @@ export const userData = [
       {
         title: 'identifier from mergedUsers',
         params: {
-          identifier: 'text',
+          identifier: 'number',
         },
         name: 'mergedUsers/identifier/:identifier',
       },
       {
-        title: 'date from mergedUsers',
+        title: 'by date from mergedUsers',
         params: {
           byDate: 'date',
         },

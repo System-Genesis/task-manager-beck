@@ -6,7 +6,14 @@ const managerData = [
       {
         title: 'source from splitter',
         params: {
-          source: ['aka', 'souf'],
+          source: [
+            'aka',
+            'sf_name',
+            'es_name',
+            'city_name',
+            'adnn_name',
+            'mir_name',
+          ],
         },
         name: 'splitter/source/:source',
         select: 'select',
@@ -20,8 +27,15 @@ const managerData = [
       {
         title: 'identifier & source from splitter',
         params: {
-          identifier: 'identifier',
-          source: ['aka', 'souf'],
+          identifier: 'number',
+          source: [
+            'aka',
+            'sf_name',
+            'es_name',
+            'city_name',
+            'adnn_name',
+            'mir_name',
+          ],
         },
         name: 'splitter/identifier/:identifier/source/:source',
         select: 'select',
@@ -29,14 +43,21 @@ const managerData = [
       {
         title: 'identifier from splitter',
         params: {
-          identifier: 'identifier',
+          identifier: 'number',
         },
         name: 'splitter/identifier/:identifier',
       },
       {
         title: 'source from mergedUsers',
         params: {
-          source: ['aka', 'sf_name'],
+          source: [
+            'aka',
+            'sf_name',
+            'es_name',
+            'city_name',
+            'adnn_name',
+            'mir_name',
+          ],
         },
         name: 'mergedUsers/source/:source',
         select: 'select',
@@ -50,12 +71,12 @@ const managerData = [
       {
         title: 'identifier from mergedUsers',
         params: {
-          identifier: 'text',
+          identifier: 'number',
         },
         name: 'mergedUsers/identifier/:identifier',
       },
       {
-        title: 'date from mergedUsers',
+        title: 'by date from mergedUsers',
         params: {
           byDate: 'date',
         },
@@ -70,7 +91,14 @@ const managerData = [
       {
         title: 'source from splitter',
         params: {
-          source: ['aka', 'souf'],
+          source: [
+            'aka',
+            'sf_name',
+            'es_name',
+            'city_name',
+            'adnn_name',
+            'mir_name',
+          ],
         },
         name: 'splitter/source/:source',
         select: 'select',
@@ -83,8 +111,15 @@ const managerData = [
       {
         title: 'identifier & source from splitter',
         params: {
-          identifier: 'identifier',
-          source: ['aka', 'souf'],
+          identifier: 'number',
+          source: [
+            'aka',
+            'sf_name',
+            'es_name',
+            'city_name',
+            'adnn_name',
+            'mir_name',
+          ],
         },
         name: 'splitter/identifier/:identifier/source/:source',
         select: 'select',
@@ -92,14 +127,21 @@ const managerData = [
       {
         title: 'identifier from splitter',
         params: {
-          identifier: 'identifier',
+          identifier: 'number',
         },
         name: 'splitter/identifier/:identifier',
       },
       {
         title: 'source from recovery',
         params: {
-          source: ['aka', 'souf'],
+          source: [
+            'aka',
+            'sf_name',
+            'es_name',
+            'city_name',
+            'adnn_name',
+            'mir_name',
+          ],
         },
         name: 'recovery/source/:source',
         select: 'select',
@@ -112,12 +154,12 @@ const managerData = [
       {
         title: 'identifier from recovery',
         params: {
-          identifier: 'identifier',
+          identifier: 'number',
         },
         name: 'recovery/identifier/:identifier',
       },
       {
-        title: 'date from recovery',
+        title: 'by date from recovery',
         params: {
           byDate: 'date',
         },
@@ -126,8 +168,11 @@ const managerData = [
       {
         title: 'daily',
         params: {
-          dailyHour: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'],
-          dailyMinute: ['00', '05', '10', '15', '20', '25', '30', '40', '45', '50', '55'],
+          hour: [
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+            20, 21, 22, 23, 24,
+          ],
+          minute: [0, 5, 10, 15, 20, 25, 30, 40, 45, 50, 55],
         },
         name: 'daily',
         select: 'multiple',
