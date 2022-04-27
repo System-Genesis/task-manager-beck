@@ -175,6 +175,7 @@ const managerData = [
           minute: [0, 5, 10, 15, 20, 25, 30, 40, 45, 50, 55],
         },
         name: 'daily',
+        message: '.',
         select: 'multiple',
         type: 'body',
       },
