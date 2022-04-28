@@ -1,5 +1,6 @@
 const managerData = [
   {
+    rule: 'manager',
     pageNum: 1,
     title: 'Get',
     btns: [
@@ -85,6 +86,7 @@ const managerData = [
     ],
   },
   {
+    rule: 'manager',
     pageNum: 2,
     title: 'Post',
     btns: [
