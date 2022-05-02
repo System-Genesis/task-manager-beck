@@ -9,7 +9,7 @@ const login = async (req: Request, res: Response) => {
   const password: string = req.body.password;
   try {
     const user: userInterface = await userManager.getUser(team, password);
-    const data: object[] = userManager.getData(user)
+    const data: object = userManager.getData(user)
     if (user) {
       return res.send({user, data});
     }
