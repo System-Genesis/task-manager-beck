@@ -1,7 +1,5 @@
-const managerData = {
-  rule: 'manager',
-  pages: [
-    {
+const managerData = [
+  {
       pageNum: 1,
       title: 'Get',
       btns: [
@@ -183,8 +181,7 @@ const managerData = {
         },
       ],
     },
-  ],
-};
+  ];
 
 export default managerData;
 

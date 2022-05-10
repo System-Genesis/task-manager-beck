@@ -1,6 +1,4 @@
-export const userData = {
-  rule: 'user',
-  pagges: [
+export const userData =  [
     {
       pageNum: 1,
       title: 'Get',
@@ -86,5 +84,4 @@ export const userData = {
         },
       ],
     },
-  ],
-};
+  ];
