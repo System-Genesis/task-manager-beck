@@ -1,6 +1,5 @@
 export const userData = [
   {
-    rule: 'user',
     pageNum: 1,
     title: 'Get',
     btns: [
