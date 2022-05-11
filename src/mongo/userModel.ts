@@ -6,8 +6,12 @@ const userSchema = new mongoose.Schema(
   {
     name: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    rule: { type: String, enum: ['manager', 'user'], required: true, },
-    pages: { type: mongoose.Schema.Types.ObjectId , ref: 'pages', required: true},
+    rule: { type: String, enum: ['manager', 'user'], required: true },
+    // pages: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: 'pages',
+    //   required: true,
+    // },
   },
   {
     versionKey: false,
@@ -17,4 +21,3 @@ const userSchema = new mongoose.Schema(
 const userModel = mongoose.model(config.userCollection, userSchema);
 
 export default userModel;
-
