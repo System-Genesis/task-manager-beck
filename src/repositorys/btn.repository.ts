@@ -1,5 +1,5 @@
 import btnModel from '../mongo/btnModel';
-import userInterface from '../interfaces/user.interface';
+import { btnTitle } from '../interfaces/btn.interface';
 
 const addBtn = async (newBtn: Object) => {
   const btn = new btnModel(newBtn);
@@ -7,11 +7,9 @@ const addBtn = async (newBtn: Object) => {
   return btn;
 };
 
-const getBtn = async (
-  name: string,
-  password: string
-): Promise<userInterface> => {
-  return await btnModel.findOne({ name, password }).lean();
+const getBtns = async (): Promise<btnTitle[]> => {
+  return await btnModel.find({}).select('title');
 };
 
-export default { addBtn, getBtn };
+
+export default { addBtn, getBtns };
