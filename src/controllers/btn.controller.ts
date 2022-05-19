@@ -1,23 +1,14 @@
 import { Request, Response } from 'express';
-// import dailyInterface from '../interfaces/daily.interface';
-// import reqTypesInterface from '../interfaces/reqTypes.interface'
+import btnManager from '../managers/btn.manager';
+import { btnTitle } from '../interfaces/btn.interface';
 
-// POST http://localhost:3020/action/
-const getBtns = async (req: Request, res: Response) => {
+const getBtnsTitle = async (_req: Request, res: Response) => {
   try {
-    // const requestType: string = req.body.reqType;
-    // const requestParams: object = req.body.requestParams;
-    // const url: string = req.body.url
-    
-    // const info = await requestHandler.buildRequest(requestType, url, requestParams);
-    // res.send(info.data);
-    // console.log(info.data);
-    console.log(req);
-    
-    
+    const btnsTitle:btnTitle[] = await btnManager.getBtns();
+    res.send(btnsTitle);
   } catch (err: any) {
     res.status(err?.response?.status || 500).json({ message: err.message });
   }
 };
 
-export default { getBtns };
+export default { getBtnsTitle };

@@ -7,9 +7,8 @@ const addBtn = async (newBtn: Object) => {
   return btn;
 };
 
-const getBtns = async (): Promise<btnTitle[]> => {
+const getBtnsTitle = async (): Promise<btnTitle[]> => {
   return await btnModel.find({}).select('title');
 };
 
-
-export default { addBtn, getBtns };
+export default { addBtn, getBtnsTitle };

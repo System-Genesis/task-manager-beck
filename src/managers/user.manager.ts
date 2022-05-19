@@ -2,6 +2,7 @@ import userRepository from '../repositorys/user.repository';
 import userInterafce from '../interfaces/user.interface';
 import managerData from '../data/managerData';
 import { userData } from '../data/userData';
+
 const crypto = require('crypto');
 
 function encrypt(val: string, ENC_KEY: Buffer, IV: Buffer) {
