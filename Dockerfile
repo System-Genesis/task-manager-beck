@@ -4,4 +4,4 @@ COPY package*.json ./
 RUN npm install --silent
 COPY . .
 RUN npm run build || true
-CMD npm start
+CMD node dist/index.js
