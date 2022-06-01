@@ -12,10 +12,12 @@ function encrypt(val: string, ENC_KEY: Buffer, IV: Buffer) {
   return encrypted;
 }
 
+// TODO: if lost everything lost, should be in env?
 const initializationVector = Buffer.from('1234567890123456'); // some string with lenth of 16
 const secretKey = Buffer.from('12345678901234561234567890123456'); // some string with lenth of 32
 
 const addUser = async (dacument: userInterafce) => {
+  // TODO: dacument => user
   dacument.password = encrypt(
     dacument.password,
     secretKey,
@@ -35,7 +37,9 @@ const getUser = async (name: string, password: string) => {
 };
 
 const getData = (user: userInterafce) => {
+  // TODO: define data interface and return it
   if (user.rule == 'manager') {
+    // TODO: rule => role
     return managerData;
   }
   return userData;

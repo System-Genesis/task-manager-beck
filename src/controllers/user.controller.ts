@@ -10,7 +10,7 @@ const addUser = async (req: Request, res: Response) => {
     const passwordQuery: string = req.body.password;
     const ruleQuery: string = req.body.rule;
 
-    const dacument: userInterface = {
+    const dacument: userInterface = { // TODO: dacument => newUser
       name: nameQuery,
       password: passwordQuery,
       rule: ruleQuery,

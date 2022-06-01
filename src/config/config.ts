@@ -8,4 +8,5 @@ export default {
   btnsCollection: env.get('BTNS_COL').required().asString(),
   pagesCollection:env.get('PAGES_COL').required().asString(),
   mongoDbPath: env.get('MONGO_PATH').required().asString(),
+  trakingURL: env.get('TRAKING_URL').required().asString(),
 }; 

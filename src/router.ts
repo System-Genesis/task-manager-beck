@@ -17,6 +17,7 @@ function routers(app: Application) {
   app.use('/action', actionHandlerRouter);
   app.use('/buttons', btnRouter);
 
+  // TODO: isAlive should probably check connection to mongo
   app.use('/isAlive', (_req: Request, res: Response) => {
     res.status(200).send('alive');
   });

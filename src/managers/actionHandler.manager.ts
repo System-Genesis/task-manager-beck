@@ -1,6 +1,9 @@
 import axios from 'axios';
+import config from '../config/config'
 
-const baseUrl = 'http://genesis-tracking.branch-yesodot.org/api/';
+// TODO: move file to repo of task manager and seperate to service task manager
+
+const baseUrl = config.trakingURL; // TODO: move into env
 
 const buildRequest = async (
   requestType: string,
@@ -8,11 +11,12 @@ const buildRequest = async (
   requestParams: any
 ) => {
   const fullUrl = `${baseUrl}${url}`;
-  
+
+  // TODO: is condition necessary? req.body.params is either empty, never undefined?
   const request = requestParams
-  ? await axios[requestType](fullUrl, requestParams)
-  : await axios[requestType](fullUrl);
-  
+    ? await axios[requestType](fullUrl, requestParams)
+    : await axios[requestType](fullUrl);
+
   return request;
 };
 
