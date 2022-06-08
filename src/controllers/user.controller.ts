@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
-import userManager from '../managers/user.manager'
-import userInterface from '../interfaces/user.interface'
-
+import userManager from '../managers/user.manager';
+import userInterface from '../interfaces/user.interface';
 
 // POST http://localhost:3020/users/
 const addUser = async (req: Request, res: Response) => {
@@ -10,13 +9,13 @@ const addUser = async (req: Request, res: Response) => {
     const passwordQuery: string = req.body.password;
     const ruleQuery: string = req.body.rule;
 
-    const dacument: userInterface = { // TODO: dacument => newUser
+    const newUser: userInterface = {
       name: nameQuery,
       password: passwordQuery,
       rule: ruleQuery,
     };
 
-    const answer = await userManager.addUser(dacument);
+    const answer = await userManager.addUser(newUser);
     res.send(answer);
   } catch (err: any) {
     res.status(500).json({ message: err.message });
@@ -28,14 +27,41 @@ const getUserByName = async (req: Request, res: Response) => {
   try {
     const userName: string = req.body.name;
     const password: string = req.body.password;
-    const answer: userInterface = await userManager.getUser(
-      userName, password
-    );
+    const answer: userInterface = await userManager.getUser(userName, password);
     res.send(answer);
   } catch (err: any) {
     res.status(500).json({ message: err.message });
   }
 };
 
+const getUserById = async (req: Request, res: Response) => {
+  try {
+    const userId: string = req.params.id;
 
-export default { addUser, getUserByName };
+    const answer: userInterface = await userManager.getUserById(userId);
+    res.send(answer);
+  } catch (err: any) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+// const addNewUser = async (req: Request, res: Response) => {
+//   try {
+//     const nameQuery: string = req.body.name;
+//     const passwordQuery: string = req.body.password;
+//     const ruleQuery: string = req.body.rule;
+
+//     const newUser: userInterface = {
+//       name: nameQuery,
+//       password: passwordQuery,
+//       rule: ruleQuery,
+//     };
+
+//     const answer = await userManager.addUser(newUser);
+//     res.send(answer);
+//   } catch (err: any) {
+//     res.status(500).json({ message: err.message });
+//   }
+// };
+
+export default { addUser, getUserByName, getUserById };

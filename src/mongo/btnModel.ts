@@ -10,7 +10,7 @@ const btnSchema = new mongoose.Schema(
     select: { type: String },
     message: { type: String },
     type: { type: String },
-    methods: { type: String, required: true },
+    methods: { type: String, enum: ['Post', 'Get'], required: true },
   },
   {
     versionKey: false,

@@ -1,13 +1,13 @@
 import btnModel from '../mongo/btnModel';
-import { btnTitle, btnInterface } from '../interfaces/btn.interface';
+import { btnTitleInterface, btnInterface } from '../interfaces/btn.interface';
 
-const addBtn = async (newBtn: Object) => {
+const addBtn = async (newBtn: btnInterface) => {
   const btn = new btnModel(newBtn);
   await btn.save();
   return btn;
 };
 
-const getBtnsTitle = async (): Promise<btnTitle[]> => {
+const getBtnsTitle = async (): Promise<btnTitleInterface[]> => {
   return await btnModel.find({}).select('title');
 };
 
@@ -15,4 +15,8 @@ const getAllBtns = async (): Promise<btnInterface[]> => {
   return await btnModel.find({});
 };
 
-export default { addBtn, getBtnsTitle, getAllBtns };
+const getBtnById = async (title: string): Promise<btnInterface> => {
+  return await btnModel.findById(title).lean();
+};
+
+export default { addBtn, getBtnsTitle, getAllBtns, getBtnById };

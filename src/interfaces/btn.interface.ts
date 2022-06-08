@@ -8,8 +8,8 @@ interface btnInterface {
   methods: String;
 }
 
-interface btnTitle {
+interface btnTitleInterface {
   title: String;
 }
 
-export { btnInterface, btnTitle };
+export { btnInterface, btnTitleInterface };

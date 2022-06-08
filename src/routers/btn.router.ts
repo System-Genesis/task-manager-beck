@@ -3,7 +3,11 @@ import btnController from '../controllers/btn.controller';
 
 const router = express.Router();
 
+router.post('/', btnController.addBtn);
 router.get('/title', btnController.getBtnsTitle);
+router.get('/:id', btnController.getBtnById);
 router.get('/', btnController.getAllBtns);
+
+
 
 export default router;

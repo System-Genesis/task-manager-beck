@@ -16,14 +16,13 @@ function encrypt(val: string, ENC_KEY: Buffer, IV: Buffer) {
 const initializationVector = Buffer.from('1234567890123456'); // some string with lenth of 16
 const secretKey = Buffer.from('12345678901234561234567890123456'); // some string with lenth of 32
 
-const addUser = async (dacument: userInterafce) => {
-  // TODO: dacument => user
-  dacument.password = encrypt(
-    dacument.password,
+const addUser = async (user: userInterafce) => {
+  user.password = encrypt(
+    user.password,
     secretKey,
     initializationVector
   );
-  const newUser = await userRepository.addUser(dacument);
+  const newUser = await userRepository.addUser(user);
   return newUser;
 };
 
@@ -45,4 +44,9 @@ const getData = (user: userInterafce) => {
   return userData;
 };
 
-export default { addUser, getUser, getData };
+const getUserById = async (userId: string) => {
+  const user: userInterafce = await userRepository.getUserById(userId,);
+  return user;
+};
+
+export default { addUser, getUser, getData, getUserById };
