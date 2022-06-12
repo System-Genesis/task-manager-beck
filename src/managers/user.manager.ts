@@ -2,6 +2,8 @@ import userRepository from '../repositorys/user.repository';
 import userInterafce from '../interfaces/user.interface';
 import managerData from '../data/managerData';
 import { userData } from '../data/userData';
+import pageManager from '../managers/page.manager'
+// import pageInterface from '../interfaces/page.interface';
 
 const crypto = require('crypto');
 
@@ -55,8 +57,13 @@ const addNewUser = async (user: userInterafce, pages: any) => {
     secretKey,
     initializationVector
   );
+  const newPages: string[] = []
+    for(let i = 0; i < pages.length; i++) {
+      newPages.push((await pageManager.addPage(pages[i]))._id as string)
+      console.log(newPages);
+    }
   const newUser = await userRepository.addUser(user);
-  console.log(pages);
+  // console.log(pages);
   
   return newUser;
 };

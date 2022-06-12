@@ -15,5 +15,4 @@ const getPageById = async (pageId: string): Promise<pageInterface> => {
     return await pageModel.findById( pageId ).lean();
 };
 
-
 export default { addPage, getAllPages, getPageById };

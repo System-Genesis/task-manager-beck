@@ -57,11 +57,10 @@ const addNewUser = async (req: Request, res: Response) => {
       password: passwordQuery,
       rule: ruleQuery,
     };
-    console.log(newUser);
-    console.log(pages.toString());
+    // console.log(JSON.stringify(pages));
     const answer = await userManager.addNewUser(newUser, pages);
     res.send(answer);
-  } catch (err: any) {
+  } catch (err: any) { 
     res.status(500).json({ message: err.message });
   }
 };
