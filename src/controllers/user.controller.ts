@@ -45,23 +45,25 @@ const getUserById = async (req: Request, res: Response) => {
   }
 };
 
-// const addNewUser = async (req: Request, res: Response) => {
-//   try {
-//     const nameQuery: string = req.body.name;
-//     const passwordQuery: string = req.body.password;
-//     const ruleQuery: string = req.body.rule;
+const addNewUser = async (req: Request, res: Response) => {
+  try {
+    const nameQuery: string = req.body.user.userName;
+    const passwordQuery: string = req.body.user.password;
+    const ruleQuery: string = req.body.user.rule;
+    const pages: object[] = req.body.pages;    
+  
+    const newUser: userInterface = {
+      name: nameQuery,
+      password: passwordQuery,
+      rule: ruleQuery,
+    };
+    console.log(newUser);
+    console.log(pages.toString());
+    const answer = await userManager.addNewUser(newUser, pages);
+    res.send(answer);
+  } catch (err: any) {
+    res.status(500).json({ message: err.message });
+  }
+};
 
-//     const newUser: userInterface = {
-//       name: nameQuery,
-//       password: passwordQuery,
-//       rule: ruleQuery,
-//     };
-
-//     const answer = await userManager.addUser(newUser);
-//     res.send(answer);
-//   } catch (err: any) {
-//     res.status(500).json({ message: err.message });
-//   }
-// };
-
-export default { addUser, getUserByName, getUserById };
+export default { addUser, getUserByName, getUserById, addNewUser };

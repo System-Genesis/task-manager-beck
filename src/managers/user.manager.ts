@@ -49,4 +49,16 @@ const getUserById = async (userId: string) => {
   return user;
 };
 
-export default { addUser, getUser, getData, getUserById };
+const addNewUser = async (user: userInterafce, pages: any) => {
+  user.password = encrypt(
+    user.password,
+    secretKey,
+    initializationVector
+  );
+  const newUser = await userRepository.addUser(user);
+  console.log(pages);
+  
+  return newUser;
+};
+
+export default { addUser, getUser, getData, getUserById, addNewUser };
