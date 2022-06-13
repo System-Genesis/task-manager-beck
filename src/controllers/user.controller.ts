@@ -5,12 +5,12 @@ import userInterface from '../interfaces/user.interface';
 // POST http://localhost:3020/users/
 const addUser = async (req: Request, res: Response) => {
   try {
-    const nameQuery: string = req.body.name;
+    const nameQuery: string = req.body.userName;
     const passwordQuery: string = req.body.password;
     const ruleQuery: string = req.body.rule;
 
     const newUser: userInterface = {
-      name: nameQuery,
+      userName: nameQuery,
       password: passwordQuery,
       rule: ruleQuery,
     };
@@ -53,7 +53,7 @@ const addNewUser = async (req: Request, res: Response) => {
     const pages: object[] = req.body.pages;    
   
     const newUser: userInterface = {
-      name: nameQuery,
+      userName: nameQuery,
       password: passwordQuery,
       rule: ruleQuery,
     };

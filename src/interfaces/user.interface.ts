@@ -1,7 +1,8 @@
 interface userInterface {
-  name: string;
+  userName: string;
   password: string;
   rule: string;
+  pages?: string[]
 }
 
 export default userInterface;

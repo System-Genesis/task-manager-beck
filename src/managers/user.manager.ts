@@ -58,14 +58,14 @@ const addNewUser = async (user: userInterafce, pages: any) => {
     initializationVector
   );
   const newPages: string[] = []
-    for(let i = 0; i < pages.length; i++) {
-      newPages.push((await pageManager.addPage(pages[i]))._id as string)
-      console.log(newPages);
-    }
-  const newUser = await userRepository.addUser(user);
+  for (let i = 0; i < pages.length; i++) {
+    newPages.push((await pageManager.addPage(pages[i]))._id as string)
+  }
+  console.log(newPages);
+  // const newUser = await userRepository.addNewUser(user, newPages);
   // console.log(pages);
-  
-  return newUser;
+
+  // return newUser;
 };
 
 export default { addUser, getUser, getData, getUserById, addNewUser };
