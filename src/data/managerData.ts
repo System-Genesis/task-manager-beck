@@ -204,3 +204,48 @@ export default managerData;
 //     }
 //   }
 // ]
+
+// [
+//   {
+//     '$lookup': {
+//       'from': 'pages', 
+//       'localField': 'pages', 
+//       'foreignField': '_id', 
+//       'as': 'pages'
+//     }
+//   }, {
+//     '$unwind': {
+//       'path': '$pages'
+//     }
+//   }, {
+//     '$lookup': {
+//       'from': 'btns', 
+//       'localField': 'pages.btns', 
+//       'foreignField': '_id', 
+//       'as': 'pages.btns'
+//     }
+//   }, {
+//     '$group': {
+//       '_id': {
+//         '_id': '$_id', 
+//         'userName': '$userName', 
+//         'password': '$password', 
+//         'rule': '$rule'
+//       }, 
+//       'pages': {
+//         '$push': {
+//           'btns': '$pages.btns', 
+//           'title': '$pages.title'
+//         }
+//       }
+//     }
+//   }, {
+//     '$project': {
+//       '_id': '$_id._id', 
+//       'userName': '$_id.userName', 
+//       'password': '$_id.password', 
+//       'rule': '$_id.rule', 
+//       'pages': '$pages'
+//     }
+//   }
+// ]

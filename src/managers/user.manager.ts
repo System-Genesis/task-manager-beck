@@ -2,7 +2,7 @@ import userRepository from '../repositorys/user.repository';
 import userInterafce from '../interfaces/user.interface';
 import managerData from '../data/managerData';
 import { userData } from '../data/userData';
-import pageManager from '../managers/page.manager'
+import pageManager from '../managers/page.manager';
 // import pageInterface from '../interfaces/page.interface';
 
 const crypto = require('crypto');
@@ -19,16 +19,13 @@ const initializationVector = Buffer.from('1234567890123456'); // some string wit
 const secretKey = Buffer.from('12345678901234561234567890123456'); // some string with lenth of 32
 
 const addUser = async (user: userInterafce) => {
-  user.password = encrypt(
-    user.password,
-    secretKey,
-    initializationVector
-  );
+  user.password = encrypt(user.password, secretKey, initializationVector);
   const newUser = await userRepository.addUser(user);
   return newUser;
 };
 
 const getUser = async (name: string, password: string) => {
+  await userRepository.getAggragateUser(name);
   const user: userInterafce = await userRepository.getUser(
     name,
     encrypt(password, secretKey, initializationVector)
@@ -47,25 +44,21 @@ const getData = (user: userInterafce) => {
 };
 
 const getUserById = async (userId: string) => {
-  const user: userInterafce = await userRepository.getUserById(userId,);
+  const user: userInterafce = await userRepository.getUserById(userId);
   return user;
 };
 
 const addNewUser = async (user: userInterafce, pages: any) => {
-  user.password = encrypt(
-    user.password,
-    secretKey,
-    initializationVector
-  );
-  const newPages: string[] = []
+  user.password = encrypt(user.password, secretKey, initializationVector);
+  const newPages: string[] = [];
   for (let i = 0; i < pages.length; i++) {
-    newPages.push((await pageManager.addPage(pages[i]))._id as string)
+    newPages.push((await pageManager.addPage(pages[i]))._id as string);
   }
   console.log(newPages);
-  // const newUser = await userRepository.addNewUser(user, newPages);
-  // console.log(pages);
+  const newUser = await userRepository.addNewUser(user, newPages);
+  console.log(pages);
 
-  // return newUser;
+  return newUser;
 };
 
 export default { addUser, getUser, getData, getUserById, addNewUser };

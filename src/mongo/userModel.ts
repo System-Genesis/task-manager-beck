@@ -7,11 +7,11 @@ const userSchema = new mongoose.Schema(
     userName: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     rule: { type: String, enum: ['manager', 'user'], required: true },
-    pages: {
+    pages: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'pages',
       required: true,
-    },
+    }],
   },
   {
     versionKey: false,
