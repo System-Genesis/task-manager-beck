@@ -25,7 +25,7 @@ const managerData = [
           message: 'זהירות!! בקשה כבדה ',
         },
         {
-          title: 'identifier & source from splitter',
+          title: 'identifier and source from splitter',
           params: {
             identifier: 'number',
             source: [
@@ -109,7 +109,7 @@ const managerData = [
           name: 'splitter/all',
         },
         {
-          title: 'identifier & source from splitter',
+          title: 'identifier and source from splitter',
           params: {
             identifier: 'number',
             source: [

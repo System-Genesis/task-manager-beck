@@ -25,7 +25,7 @@ export const userData =  [
           message: 'זהירות!! בקשה כבדה ',
         },
         {
-          title: 'identifier & source from splitter',
+          title: 'identifier and source from splitter',
           params: {
             identifier: 'number',
             source: [
