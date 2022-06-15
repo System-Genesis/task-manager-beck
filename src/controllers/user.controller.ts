@@ -65,4 +65,5 @@ const addNewUser = async (req: Request, res: Response) => {
   }
 };
 
+
 export default { addUser, getUserByName, getUserById, addNewUser };
