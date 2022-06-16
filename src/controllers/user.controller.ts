@@ -74,5 +74,16 @@ const getAllusernames = async (_req: Request, res: Response) => {
   }
 };
 
+const checkIfUserExist = async (req: Request, res: Response) => {
+  try {
+    const userName: string = req.params.username;
 
-export default { addUser, getUserByName, getUserById, addNewUser, getAllusernames };
+    const answer: boolean = await userManager.checkIfUserExist(userName);
+    res.send(answer);
+  } catch (err: any) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+
+export default { addUser, getUserByName, getUserById, addNewUser, getAllusernames, checkIfUserExist };

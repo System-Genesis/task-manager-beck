@@ -17,12 +17,14 @@ const managerData = [
         },
         name: 'splitter/source/:source',
         select: 'select',
+        toolTip: 'קבלת מידע גולמי לפי מקור'
       },
       {
         title: 'all from splitter',
         params: {},
         name: 'splitter/all',
         message: 'זהירות!! בקשה כבדה ',
+        toolTip: 'קבלת כל המידע הגולמי מכל המקורות'
       },
       {
         title: 'identifier and source from splitter',
@@ -39,6 +41,7 @@ const managerData = [
         },
         name: 'splitter/identifier/:identifier/source/:source',
         select: 'select',
+        toolTip: 'קבלת מידע גולמי לפי מזהה אישי ומקור'
       },
       {
         title: 'identifier from splitter',
@@ -46,6 +49,7 @@ const managerData = [
           identifier: 'number',
         },
         name: 'splitter/identifier/:identifier',
+        toolTip: 'קבלת מידע גולמי לפי מזהה אישי'
       },
       {
         title: 'source from mergedUsers',
@@ -61,12 +65,15 @@ const managerData = [
         },
         name: 'mergedUsers/source/:source',
         select: 'select',
+        toolTip: 'קבלת מידע גולמי לפי מקור לאחר עיבוד ראשוני'
       },
       {
         title: 'all from mergedUsers',
         params: {},
         name: 'mergedUsers/all',
         message: 'זהירות!! בקשה כבדה ',
+        toolTip: 'קבלת כל המידע הגולמי מכל המקורות לאחר עיבוד ראשוני'
+
       },
       {
         title: 'identifier from mergedUsers',
@@ -74,6 +81,7 @@ const managerData = [
           identifier: 'number',
         },
         name: 'mergedUsers/identifier/:identifier',
+        toolTip: 'קבלת מידע גולמי לפי מזהה אישי לאחר עיבוד ראשוני'
       },
       {
         title: 'by date from mergedUsers',
@@ -81,6 +89,7 @@ const managerData = [
           byDate: 'date',
         },
         name: 'mergedUsers/byDate/:byDate',
+        toolTip: 'קבלת מידע גולמי לפי תאריך לאחר עיבוד ראשוני'
       },
     ],
   },
@@ -102,11 +111,13 @@ const managerData = [
         },
         name: 'splitter/source/:source',
         select: 'select',
+        toolTip: 'הרצת מידע גולמי לפי מקור'
       },
       {
         title: 'all from splitter',
         params: {},
         name: 'splitter/all',
+        toolTip: 'הרצת כל המידע הגולמי מכל המקורות'
       },
       {
         title: 'identifier and source from splitter',
@@ -123,6 +134,7 @@ const managerData = [
         },
         name: 'splitter/identifier/:identifier/source/:source',
         select: 'select',
+        toolTip: 'הרצת מידע גולמי לפי מזהה אישי ומקור'
       },
       {
         title: 'identifier from splitter',
@@ -130,9 +142,11 @@ const managerData = [
           identifier: 'number',
         },
         name: 'splitter/identifier/:identifier',
+        toolTip: 'הרצת מידע גולמי לפי מזהה אישי'
+
       },
       {
-        title: 'source from recovery',
+        title: 'recovery of source',
         params: {
           source: [
             'aka',
@@ -145,25 +159,29 @@ const managerData = [
         },
         name: 'recovery/source/:source',
         select: 'select',
+        toolTip: 'הרצת תהליך עדכון של המידע לפי מקור'
       },
       {
-        title: 'all from recovery',
+        title: 'recovery of all',
         params: {},
         name: 'recovery/all',
+        toolTip: 'הרצת תהליך עדכון של המידע מכל המקורות'
       },
       {
-        title: 'identifier from recovery',
+        title: 'recovery of identifier',
         params: {
           identifier: 'number',
         },
         name: 'recovery/identifier/:identifier',
+        toolTip: 'הרצת תהליך עדכון של המידע לפי מזהה אישי'
       },
       {
-        title: 'by date from recovery',
+        title: 'recovery of date',
         params: {
           byDate: 'date',
         },
         name: 'recovery/byDate/:byDate',
+        toolTip: 'הרצת תהליך עדכון של המידע לפי תאריך'
       },
       {
         title: 'daily',
@@ -178,6 +196,7 @@ const managerData = [
         message: '.',
         select: 'multiple',
         type: 'body',
+        toolTip: 'קביעת זמן הרצת תהליך העדכון של המידע'
       },
     ],
   },

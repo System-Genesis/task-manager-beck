@@ -64,4 +64,10 @@ const getAllusernames = async () => {
   return getAllusernames;
 };
 
-export default { addUser, getUser, getData, getUserById, addNewUser, getAllusernames };
+const checkIfUserExist = async (userName: string) => {
+  const user: boolean = await userRepository.checkIfUserExist(userName);
+  return user;
+};
+
+
+export default { addUser, getUser, getData, getUserById, addNewUser, getAllusernames, checkIfUserExist };

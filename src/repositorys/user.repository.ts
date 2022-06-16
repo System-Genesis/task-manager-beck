@@ -91,4 +91,17 @@ const getAllusernames = async (): Promise<usernamesInterface[]> => {
   return await userModel.find({}).select('username');
 };
 
-export default { addUser, getUser, getUserById, addNewUser, getAggragateUser, getAllusernames };
+const checkIfUserExist = async (username: string): Promise<boolean> => {
+  const userExist =  await userModel.exists({username: username});
+  if(userExist) {
+    return true;
+  }
+  else { 
+    return false;
+  }
+
+};
+
+
+
+export default { addUser, getUser, getUserById, addNewUser, getAggragateUser, getAllusernames, checkIfUserExist };

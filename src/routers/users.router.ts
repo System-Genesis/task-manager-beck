@@ -8,5 +8,6 @@ router.post('/new', userController.addNewUser);
 router.get('/', userController.getUserByName);
 router.get('/id/:id', userController.getUserById);
 router.get('/username', userController.getAllusernames);
+router.get('/username/exist/:username', userController.checkIfUserExist);
 
 export default router;

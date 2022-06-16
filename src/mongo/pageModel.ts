@@ -4,7 +4,7 @@ import config from '../config/config';
 // Mongoose schema of the merged object
 const pageSchema = new mongoose.Schema(
   {
-    title: { type: String, required: true, unique: true },
+    title: { type: String, required: true },
     btns: [
       { type: mongoose.Schema.Types.ObjectId, ref: 'btns', required: true },
     ],
