@@ -1,5 +1,5 @@
 import userRepository from '../repositorys/user.repository';
-import userInterafce from '../interfaces/user.interface';
+import { userInterface, usernamesInterface } from '../interfaces/user.interface';
 import managerData from '../data/managerData';
 import { userData } from '../data/userData';
 import pageManager from '../managers/page.manager';
@@ -18,7 +18,7 @@ function encrypt(val: string, ENC_KEY: Buffer, IV: Buffer) {
 const initializationVector = Buffer.from('1234567890123456'); // some string with lenth of 16
 const secretKey = Buffer.from('12345678901234561234567890123456'); // some string with lenth of 32
 
-const addUser = async (user: userInterafce) => {
+const addUser = async (user: userInterface) => {
   user.password = encrypt(user.password, secretKey, initializationVector);
   const newUser = await userRepository.addUser(user);
   return newUser;
@@ -26,7 +26,7 @@ const addUser = async (user: userInterafce) => {
 
 const getUser = async (name: string, password: string) => {
   await userRepository.getAggragateUser(name);
-  const user: userInterafce = await userRepository.getUser(
+  const user: userInterface = await userRepository.getUser(
     name,
     encrypt(password, secretKey, initializationVector)
   );
@@ -34,7 +34,7 @@ const getUser = async (name: string, password: string) => {
   return user;
 };
 
-const getData = (user: userInterafce) => {
+const getData = (user: userInterface) => {
   // TODO: define data interface and return it
   if (user.rule == 'manager') {
     // TODO: rule => role
@@ -44,11 +44,11 @@ const getData = (user: userInterafce) => {
 };
 
 const getUserById = async (userId: string) => {
-  const user: userInterafce = await userRepository.getUserById(userId);
+  const user: userInterface = await userRepository.getUserById(userId);
   return user;
 };
 
-const addNewUser = async (user: userInterafce, pages: any) => {
+const addNewUser = async (user: userInterface, pages: any) => {
   user.password = encrypt(user.password, secretKey, initializationVector);
   const newPages: string[] = [];
   for (let i = 0; i < pages.length; i++) {
@@ -56,9 +56,12 @@ const addNewUser = async (user: userInterafce, pages: any) => {
   }
   console.log(newPages);
   const newUser = await userRepository.addNewUser(user, newPages);
-  console.log(pages);
-
   return newUser;
 };
 
-export default { addUser, getUser, getData, getUserById, addNewUser };
+const getAllusernames = async () => {
+  const getAllusernames: usernamesInterface[] = await userRepository.getAllusernames();
+  return getAllusernames;
+};
+
+export default { addUser, getUser, getData, getUserById, addNewUser, getAllusernames };

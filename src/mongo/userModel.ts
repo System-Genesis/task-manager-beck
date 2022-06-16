@@ -4,7 +4,7 @@ import config from '../config/config';
 // Mongoose schema of the merged object
 const userSchema = new mongoose.Schema(
   {
-    userName: { type: String, required: true, unique: true },
+    username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     rule: { type: String, enum: ['manager', 'user'], required: true },
     pages: [{

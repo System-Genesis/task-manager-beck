@@ -1,8 +1,12 @@
 interface userInterface {
-  userName: string;
+  username: string;
   password: string;
   rule: string;
   pages?: string[]
 }
 
-export default userInterface;
+interface usernamesInterface {
+  username: String;
+}
+
+export {userInterface, usernamesInterface};

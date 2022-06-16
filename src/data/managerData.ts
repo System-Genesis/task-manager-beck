@@ -1,187 +1,187 @@
 const managerData = [
   {
-      pageNum: 1,
-      title: 'Get',
-      btns: [
-        {
-          title: 'source from splitter',
-          params: {
-            source: [
-              'aka',
-              'sf_name',
-              'es_name',
-              'city_name',
-              'adnn_name',
-              'mir_name',
-            ],
-          },
-          name: 'splitter/source/:source',
-          select: 'select',
+    pageNum: 1,
+    title: 'Get',
+    btns: [
+      {
+        title: 'source from splitter',
+        params: {
+          source: [
+            'aka',
+            'sf_name',
+            'es_name',
+            'city_name',
+            'adnn_name',
+            'mir_name',
+          ],
         },
-        {
-          title: 'all from splitter',
-          params: {},
-          name: 'splitter/all',
-          message: 'זהירות!! בקשה כבדה ',
+        name: 'splitter/source/:source',
+        select: 'select',
+      },
+      {
+        title: 'all from splitter',
+        params: {},
+        name: 'splitter/all',
+        message: 'זהירות!! בקשה כבדה ',
+      },
+      {
+        title: 'identifier and source from splitter',
+        params: {
+          identifier: 'number',
+          source: [
+            'aka',
+            'sf_name',
+            'es_name',
+            'city_name',
+            'adnn_name',
+            'mir_name',
+          ],
         },
-        {
-          title: 'identifier and source from splitter',
-          params: {
-            identifier: 'number',
-            source: [
-              'aka',
-              'sf_name',
-              'es_name',
-              'city_name',
-              'adnn_name',
-              'mir_name',
-            ],
-          },
-          name: 'splitter/identifier/:identifier/source/:source',
-          select: 'select',
+        name: 'splitter/identifier/:identifier/source/:source',
+        select: 'select',
+      },
+      {
+        title: 'identifier from splitter',
+        params: {
+          identifier: 'number',
         },
-        {
-          title: 'identifier from splitter',
-          params: {
-            identifier: 'number',
-          },
-          name: 'splitter/identifier/:identifier',
+        name: 'splitter/identifier/:identifier',
+      },
+      {
+        title: 'source from mergedUsers',
+        params: {
+          source: [
+            'aka',
+            'sf_name',
+            'es_name',
+            'city_name',
+            'adnn_name',
+            'mir_name',
+          ],
         },
-        {
-          title: 'source from mergedUsers',
-          params: {
-            source: [
-              'aka',
-              'sf_name',
-              'es_name',
-              'city_name',
-              'adnn_name',
-              'mir_name',
-            ],
-          },
-          name: 'mergedUsers/source/:source',
-          select: 'select',
+        name: 'mergedUsers/source/:source',
+        select: 'select',
+      },
+      {
+        title: 'all from mergedUsers',
+        params: {},
+        name: 'mergedUsers/all',
+        message: 'זהירות!! בקשה כבדה ',
+      },
+      {
+        title: 'identifier from mergedUsers',
+        params: {
+          identifier: 'number',
         },
-        {
-          title: 'all from mergedUsers',
-          params: {},
-          name: 'mergedUsers/all',
-          message: 'זהירות!! בקשה כבדה ',
+        name: 'mergedUsers/identifier/:identifier',
+      },
+      {
+        title: 'by date from mergedUsers',
+        params: {
+          byDate: 'date',
         },
-        {
-          title: 'identifier from mergedUsers',
-          params: {
-            identifier: 'number',
-          },
-          name: 'mergedUsers/identifier/:identifier',
+        name: 'mergedUsers/byDate/:byDate',
+      },
+    ],
+  },
+  {
+    pageNum: 2,
+    title: 'Post',
+    btns: [
+      {
+        title: 'source from splitter',
+        params: {
+          source: [
+            'aka',
+            'sf_name',
+            'es_name',
+            'city_name',
+            'adnn_name',
+            'mir_name',
+          ],
         },
-        {
-          title: 'by date from mergedUsers',
-          params: {
-            byDate: 'date',
-          },
-          name: 'mergedUsers/byDate/:byDate',
+        name: 'splitter/source/:source',
+        select: 'select',
+      },
+      {
+        title: 'all from splitter',
+        params: {},
+        name: 'splitter/all',
+      },
+      {
+        title: 'identifier and source from splitter',
+        params: {
+          identifier: 'number',
+          source: [
+            'aka',
+            'sf_name',
+            'es_name',
+            'city_name',
+            'adnn_name',
+            'mir_name',
+          ],
         },
-      ],
-    },
-    {
-      pageNum: 2,
-      title: 'Post',
-      btns: [
-        {
-          title: 'source from splitter',
-          params: {
-            source: [
-              'aka',
-              'sf_name',
-              'es_name',
-              'city_name',
-              'adnn_name',
-              'mir_name',
-            ],
-          },
-          name: 'splitter/source/:source',
-          select: 'select',
+        name: 'splitter/identifier/:identifier/source/:source',
+        select: 'select',
+      },
+      {
+        title: 'identifier from splitter',
+        params: {
+          identifier: 'number',
         },
-        {
-          title: 'all from splitter',
-          params: {},
-          name: 'splitter/all',
+        name: 'splitter/identifier/:identifier',
+      },
+      {
+        title: 'source from recovery',
+        params: {
+          source: [
+            'aka',
+            'sf_name',
+            'es_name',
+            'city_name',
+            'adnn_name',
+            'mir_name',
+          ],
         },
-        {
-          title: 'identifier and source from splitter',
-          params: {
-            identifier: 'number',
-            source: [
-              'aka',
-              'sf_name',
-              'es_name',
-              'city_name',
-              'adnn_name',
-              'mir_name',
-            ],
-          },
-          name: 'splitter/identifier/:identifier/source/:source',
-          select: 'select',
+        name: 'recovery/source/:source',
+        select: 'select',
+      },
+      {
+        title: 'all from recovery',
+        params: {},
+        name: 'recovery/all',
+      },
+      {
+        title: 'identifier from recovery',
+        params: {
+          identifier: 'number',
         },
-        {
-          title: 'identifier from splitter',
-          params: {
-            identifier: 'number',
-          },
-          name: 'splitter/identifier/:identifier',
+        name: 'recovery/identifier/:identifier',
+      },
+      {
+        title: 'by date from recovery',
+        params: {
+          byDate: 'date',
         },
-        {
-          title: 'source from recovery',
-          params: {
-            source: [
-              'aka',
-              'sf_name',
-              'es_name',
-              'city_name',
-              'adnn_name',
-              'mir_name',
-            ],
-          },
-          name: 'recovery/source/:source',
-          select: 'select',
+        name: 'recovery/byDate/:byDate',
+      },
+      {
+        title: 'daily',
+        params: {
+          hour: [
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+            20, 21, 22, 23, 24,
+          ],
+          minute: [0, 5, 10, 15, 20, 25, 30, 40, 45, 50, 55],
         },
-        {
-          title: 'all from recovery',
-          params: {},
-          name: 'recovery/all',
-        },
-        {
-          title: 'identifier from recovery',
-          params: {
-            identifier: 'number',
-          },
-          name: 'recovery/identifier/:identifier',
-        },
-        {
-          title: 'by date from recovery',
-          params: {
-            byDate: 'date',
-          },
-          name: 'recovery/byDate/:byDate',
-        },
-        {
-          title: 'daily',
-          params: {
-            hour: [
-              1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-              20, 21, 22, 23, 24,
-            ],
-            minute: [0, 5, 10, 15, 20, 25, 30, 40, 45, 50, 55],
-          },
-          name: 'daily',
-          message: '.',
-          select: 'multiple',
-          type: 'body',
-        },
-      ],
-    },
-  ];
+        name: 'daily',
+        message: '.',
+        select: 'multiple',
+        type: 'body',
+      },
+    ],
+  },
+];
 
 export default managerData;
 
@@ -190,16 +190,16 @@ export default managerData;
 // [
 //   {
 //     '$lookup': {
-//       'from': 'pages', 
-//       'localField': 'pages', 
-//       'foreignField': '_id', 
+//       'from': 'pages',
+//       'localField': 'pages',
+//       'foreignField': '_id',
 //       'as': 'pages'
 //     }
 //   }, {
 //     '$lookup': {
-//       'from': 'btns', 
-//       'localField': 'pages.btns', 
-//       'foreignField': '_id', 
+//       'from': 'btns',
+//       'localField': 'pages.btns',
+//       'foreignField': '_id',
 //       'as': 'pages.btns'
 //     }
 //   }
@@ -208,9 +208,9 @@ export default managerData;
 // [
 //   {
 //     '$lookup': {
-//       'from': 'pages', 
-//       'localField': 'pages', 
-//       'foreignField': '_id', 
+//       'from': 'pages',
+//       'localField': 'pages',
+//       'foreignField': '_id',
 //       'as': 'pages'
 //     }
 //   }, {
@@ -219,32 +219,32 @@ export default managerData;
 //     }
 //   }, {
 //     '$lookup': {
-//       'from': 'btns', 
-//       'localField': 'pages.btns', 
-//       'foreignField': '_id', 
+//       'from': 'btns',
+//       'localField': 'pages.btns',
+//       'foreignField': '_id',
 //       'as': 'pages.btns'
 //     }
 //   }, {
 //     '$group': {
 //       '_id': {
-//         '_id': '$_id', 
-//         'userName': '$userName', 
-//         'password': '$password', 
+//         '_id': '$_id',
+//         'username': '$username',
+//         'password': '$password',
 //         'rule': '$rule'
-//       }, 
+//       },
 //       'pages': {
 //         '$push': {
-//           'btns': '$pages.btns', 
+//           'btns': '$pages.btns',
 //           'title': '$pages.title'
 //         }
 //       }
 //     }
 //   }, {
 //     '$project': {
-//       '_id': '$_id._id', 
-//       'userName': '$_id.userName', 
-//       'password': '$_id.password', 
-//       'rule': '$_id.rule', 
+//       '_id': '$_id._id',
+//       'username': '$_id.username',
+//       'password': '$_id.password',
+//       'rule': '$_id.rule',
 //       'pages': '$pages'
 //     }
 //   }

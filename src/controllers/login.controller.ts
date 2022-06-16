@@ -1,14 +1,14 @@
 import { Request, Response } from 'express';
 import userManager from '../managers/user.manager';
-import userInterface from '../interfaces/user.interface';
+import { userInterface } from '../interfaces/user.interface';
 
 // POST http://localhost:3020/login/
 const login = async (req: Request, res: Response) => {
-  const userName: string = req.body.userName; 
+  const username: string = req.body.username;
   const password: string = req.body.password;
-  
+
   try {
-    const user: userInterface = await userManager.getUser(userName, password);
+    const user: userInterface = await userManager.getUser(username, password);
     const data: object = userManager.getData(user); // TODO: what data object? define user interface
     if (user) {
       return res.send({ user, data });

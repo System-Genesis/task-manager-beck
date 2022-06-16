@@ -31,7 +31,7 @@ const addBtn = async (req: Request, res: Response) => {
 
 const getBtnsTitle = async (_req: Request, res: Response) => {
   try {
-    const btnsTitle: btnTitleInterface[] = await btnManager.getBtns(); // TODO: add prettier
+    const btnsTitle: btnTitleInterface[] = await btnManager.getBtnsTitle(); // TODO: add prettier
     res.send(btnsTitle);
   } catch (err: any) {
     res.status(err?.response?.status || 500).json({ message: err.message });

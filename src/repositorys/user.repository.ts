@@ -1,5 +1,5 @@
 import userModel from '../mongo/userModel';
-import userInterface from '../interfaces/user.interface';
+import { userInterface, usernamesInterface } from '../interfaces/user.interface';
 // import pageInterface from '../interfaces/page.interface';
 
 const addUser = async (newUser: userInterface) => {
@@ -9,20 +9,20 @@ const addUser = async (newUser: userInterface) => {
 };
 
 const getUser = async (
-  userName: string,
+  username: string,
   password: string
 ): Promise<userInterface> => {
-  return await userModel.findOne({ userName, password }).lean();
+  return await userModel.findOne({ username, password }).lean();
 };
 
 const getUserById = async (userId: string): Promise<userInterface> => {
   return await userModel.findById(userId).lean();
 };
 
-const getAggragateUser = async (userName: string) => {
+const getAggragateUser = async (username: string) => {
   const user = await userModel.aggregate([
     {
-      $match: { userName: userName },
+      $match: { username: username },
     },
     {
       $lookup: {
@@ -49,7 +49,7 @@ const getAggragateUser = async (userName: string) => {
       $group: {
         _id: {
           _id: '$_id',
-          userName: '$userName',
+          username: '$username',
           password: '$password',
           rule: '$rule',
         },
@@ -64,7 +64,7 @@ const getAggragateUser = async (userName: string) => {
     {
       $project: {
         _id: '$_id._id',
-        userName: '$_id.userName',
+        username: '$_id.username',
         password: '$_id.password',
         rule: '$_id.rule',
         pages: '$pages',
@@ -77,7 +77,7 @@ const getAggragateUser = async (userName: string) => {
 
 const addNewUser = async (newUser: userInterface, newPages: string[]) => {
   const user = {
-    userName: newUser.userName,
+    username: newUser.username,
     password: newUser.password,
     rule: newUser.rule,
     pages: newPages,
@@ -87,4 +87,8 @@ const addNewUser = async (newUser: userInterface, newPages: string[]) => {
   return userNew;
 };
 
-export default { addUser, getUser, getUserById, addNewUser, getAggragateUser };
+const getAllusernames = async (): Promise<usernamesInterface[]> => {
+  return await userModel.find({}).select('username');
+};
+
+export default { addUser, getUser, getUserById, addNewUser, getAggragateUser, getAllusernames };

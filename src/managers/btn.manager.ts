@@ -6,7 +6,7 @@ const addBtn = async (btn: btnInterface) => {
   return newBtn;
 };
 
-const getBtns = async () => {
+const getBtnsTitle = async () => {
   const getBtnsTitle: btnTitleInterface[] = await btnRepository.getBtnsTitle();
   return getBtnsTitle;
 };
@@ -22,4 +22,4 @@ const getBtnById = async (title: string) => {
 };
 
 
-export default { getBtns, getAllBtns, addBtn, getBtnById };
+export default { getBtnsTitle, getAllBtns, addBtn, getBtnById };
