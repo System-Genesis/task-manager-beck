@@ -6,7 +6,7 @@ const PORT = config.port;
 
 export const app: Application = express();
 
-function server() {
+function startServer() {
   routers(app);
 
   app.listen(PORT, () => {
@@ -14,5 +14,5 @@ function server() {
   });
 }
 
-export default server;
+export default startServer;
 

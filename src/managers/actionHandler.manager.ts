@@ -3,7 +3,7 @@ import config from '../config/config'
 
 // TODO: move file to repo of task manager and seperate to service task manager
 
-const baseUrl = config.trakingURL; // TODO: move into env
+const baseUrl = config.trakingURL; 
 
 const buildRequest = async (
   requestType: string,
@@ -11,12 +11,16 @@ const buildRequest = async (
   requestParams: any
 ) => {
   const fullUrl = `${baseUrl}${url}`;
+  console.log(fullUrl);
+  
 
   // TODO: is condition necessary? req.body.params is either empty, never undefined?
   const request = requestParams
-    ? await axios[requestType](fullUrl, requestParams)
-    : await axios[requestType](fullUrl);
+    ? await axios[requestType.toLowerCase()](fullUrl, requestParams)
+    : await axios[requestType.toLowerCase()](fullUrl);
 
+    console.log(request);
+    
   return request;
 };
 

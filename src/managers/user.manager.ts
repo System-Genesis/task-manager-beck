@@ -1,9 +1,14 @@
 import userRepository from '../repositorys/user.repository';
-import { userInterface, usernamesInterface } from '../interfaces/user.interface';
+import {
+  userInterface,
+  usernamesInterface,
+  userAggregateInterface
+} from '../interfaces/user.interface';
 import managerData from '../data/managerData';
 import { userData } from '../data/userData';
 import pageManager from '../managers/page.manager';
-// import pageInterface from '../interfaces/page.interface';
+import config from '../config/config'
+
 
 const crypto = require('crypto');
 
@@ -14,9 +19,8 @@ function encrypt(val: string, ENC_KEY: Buffer, IV: Buffer) {
   return encrypted;
 }
 
-// TODO: if lost everything lost, should be in env?
-const initializationVector = Buffer.from('1234567890123456'); // some string with lenth of 16
-const secretKey = Buffer.from('12345678901234561234567890123456'); // some string with lenth of 32
+const initializationVector = Buffer.from(config.initializationVector); // some string with lenth of 16
+const secretKey = Buffer.from(config.secretKey); // some string with lenth of 32
 
 const addUser = async (user: userInterface) => {
   user.password = encrypt(user.password, secretKey, initializationVector);
@@ -25,12 +29,10 @@ const addUser = async (user: userInterface) => {
 };
 
 const getUser = async (name: string, password: string) => {
-  await userRepository.getAggragateUser(name);
-  const user: userInterface = await userRepository.getUser(
+  const user: userAggregateInterface = await userRepository.getAggragateUser(
     name,
     encrypt(password, secretKey, initializationVector)
   );
-
   return user;
 };
 
@@ -60,7 +62,8 @@ const addNewUser = async (user: userInterface, pages: any) => {
 };
 
 const getAllusernames = async () => {
-  const getAllusernames: usernamesInterface[] = await userRepository.getAllusernames();
+  const getAllusernames: usernamesInterface[] =
+    await userRepository.getAllusernames();
   return getAllusernames;
 };
 
@@ -69,5 +72,12 @@ const checkIfUserExist = async (userName: string) => {
   return user;
 };
 
-
-export default { addUser, getUser, getData, getUserById, addNewUser, getAllusernames, checkIfUserExist };
+export default {
+  addUser,
+  getUser,
+  getData,
+  getUserById,
+  addNewUser,
+  getAllusernames,
+  checkIfUserExist,
+};

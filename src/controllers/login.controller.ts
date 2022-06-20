@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import userManager from '../managers/user.manager';
-import { userInterface } from '../interfaces/user.interface';
+import { userAggregateInterface } from '../interfaces/user.interface';
 
 // POST http://localhost:3020/login/
 const login = async (req: Request, res: Response) => {
@@ -8,10 +8,9 @@ const login = async (req: Request, res: Response) => {
   const password: string = req.body.password;
 
   try {
-    const user: userInterface = await userManager.getUser(username, password);
-    const data: object = userManager.getData(user); // TODO: what data object? define user interface
+    const user: userAggregateInterface = await userManager.getUser(username, password);
     if (user) {
-      return res.send({ user, data });
+      return res.send({ user, data:user.pages });
     }
 
     return res.status(404).send('not found');

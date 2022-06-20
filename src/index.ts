@@ -1,7 +1,7 @@
 // import managerData from './data/managerData';
 import mongo from './mongo/mongo';
 // import btnRepository from './repositorys/btn.repository';
-import server from './server';
+import startServer from './server';
 
 export default async function startFunction() {
   console.log('try connect to mongo');
@@ -19,7 +19,6 @@ export default async function startFunction() {
   //   });
   // });
   // TODO: (retry?) before start server
-  // TODO: rename to startServer
-  server();
+  startServer();
 }
 startFunction();

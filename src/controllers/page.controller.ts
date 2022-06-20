@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import pageManager from '../managers/page.manager';
-import pageInterface from '../interfaces/page.interface';
+import {pageInterface} from '../interfaces/page.interface';
 
 const addPage = async (req: Request, res: Response) => {
   try {

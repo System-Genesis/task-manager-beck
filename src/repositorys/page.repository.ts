@@ -1,5 +1,5 @@
 import pageModel from '../mongo/pageModel';
-import pageInterface from '../interfaces/page.interface';
+import {pageInterface} from '../interfaces/page.interface';
 
 const addPage = async (newPage: pageInterface) => {
   const page = new pageModel(newPage);

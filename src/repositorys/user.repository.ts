@@ -1,5 +1,5 @@
 import userModel from '../mongo/userModel';
-import { userInterface, usernamesInterface } from '../interfaces/user.interface';
+import { userInterface, usernamesInterface, userAggregateInterface } from '../interfaces/user.interface';
 // import pageInterface from '../interfaces/page.interface';
 
 const addUser = async (newUser: userInterface) => {
@@ -19,10 +19,10 @@ const getUserById = async (userId: string): Promise<userInterface> => {
   return await userModel.findById(userId).lean();
 };
 
-const getAggragateUser = async (username: string) => {
+const getAggragateUser = async (username: string,password: string): Promise<userAggregateInterface> => {
   const user = await userModel.aggregate([
     {
-      $match: { username: username },
+      $match: { username,password },
     },
     {
       $lookup: {

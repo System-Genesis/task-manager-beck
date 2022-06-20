@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import userManager from '../managers/user.manager';
-import { userInterface, usernamesInterface } from '../interfaces/user.interface';
+import { userInterface, usernamesInterface, userAggregateInterface } from '../interfaces/user.interface';
 
 // POST http://localhost:3020/users/
 const addUser = async (req: Request, res: Response) => {
@@ -27,7 +27,7 @@ const getUserByName = async (req: Request, res: Response) => {
   try {
     const username: string = req.body.username;
     const password: string = req.body.password;
-    const answer: userInterface = await userManager.getUser(username, password);
+    const answer: userAggregateInterface = await userManager.getUser(username, password);
     res.send(answer);
   } catch (err: any) {
     res.status(500).json({ message: err.message });
@@ -67,7 +67,7 @@ const addNewUser = async (req: Request, res: Response) => {
 
 const getAllusernames = async (_req: Request, res: Response) => {
   try {
-    const usernames: usernamesInterface[] = await userManager.getAllusernames(); // TODO: add prettier
+    const usernames: usernamesInterface[] = await userManager.getAllusernames(); 
     res.send(usernames);
   } catch (err: any) {
     res.status(err?.response?.status || 500).json({ message: err.message });

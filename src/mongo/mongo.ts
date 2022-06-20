@@ -4,8 +4,7 @@ import config from '../config/config';
 /**
  * Connect to mongo
  */
-// TODO: rename to connect to mongo
-export default async () => {
+export default async function connectToMongo() {
   console.log(config.mongoDbPath);
 
   const opt: any = { useNewUrlParser: true, useUnifiedTopology: true };

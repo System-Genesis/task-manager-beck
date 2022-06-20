@@ -1,5 +1,5 @@
 import pageRepository from '../repositorys/page.repository';
-import pageInterface from '../interfaces/page.interface';
+import {pageInterface} from '../interfaces/page.interface';
 // import { btnInterface } from '../interfaces/btn.interface';
 
 const addPage = async (page: pageInterface) => {
