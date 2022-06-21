@@ -1,33 +1,20 @@
 import { Request, Response } from 'express';
 import userManager from '../managers/user.manager';
-import { userInterface, usernamesInterface, userAggregateInterface } from '../interfaces/user.interface';
-
-// POST http://localhost:3020/users/
-const addUser = async (req: Request, res: Response) => {
-  try {
-    const nameQuery: string = req.body.username;
-    const passwordQuery: string = req.body.password;
-    const ruleQuery: string = req.body.rule;
-
-    const newUser: userInterface = {
-      username: nameQuery,
-      password: passwordQuery,
-      rule: ruleQuery,
-    };
-
-    const answer = await userManager.addUser(newUser);
-    res.send(answer);
-  } catch (err: any) {
-    res.status(500).json({ message: err.message });
-  }
-};
+import {
+  userInterface,
+  usernamesInterface,
+  userAggregateInterface,
+} from '../interfaces/user.interface';
 
 // GET http://localhost:3020/users/
 const getUserByName = async (req: Request, res: Response) => {
   try {
     const username: string = req.body.username;
     const password: string = req.body.password;
-    const answer: userAggregateInterface = await userManager.getUser(username, password);
+    const answer: userAggregateInterface = await userManager.getUser(
+      username,
+      password
+    );
     res.send(answer);
   } catch (err: any) {
     res.status(500).json({ message: err.message });
@@ -45,20 +32,19 @@ const getUserById = async (req: Request, res: Response) => {
   }
 };
 
-const addNewUser = async (req: Request, res: Response) => {
+const addUser = async (req: Request, res: Response) => {
   try {
     const nameQuery: string = req.body.user.username;
     const passwordQuery: string = req.body.user.password;
-    const ruleQuery: string = req.body.user.rule;
+    const roleQuery: string = req.body.user.role;
     const pages: object[] = req.body.pages;
 
     const newUser: userInterface = {
       username: nameQuery,
       password: passwordQuery,
-      rule: ruleQuery,
+      role: roleQuery,
     };
-    // console.log(JSON.stringify(pages));
-    const answer = await userManager.addNewUser(newUser, pages);
+    const answer = await userManager.addUser(newUser, pages);
     res.send(answer);
   } catch (err: any) {
     res.status(500).json({ message: err.message });
@@ -67,7 +53,7 @@ const addNewUser = async (req: Request, res: Response) => {
 
 const getAllusernames = async (_req: Request, res: Response) => {
   try {
-    const usernames: usernamesInterface[] = await userManager.getAllusernames(); 
+    const usernames: usernamesInterface[] = await userManager.getAllusernames();
     res.send(usernames);
   } catch (err: any) {
     res.status(err?.response?.status || 500).json({ message: err.message });
@@ -85,5 +71,10 @@ const checkIfUserExist = async (req: Request, res: Response) => {
   }
 };
 
-
-export default { addUser, getUserByName, getUserById, addNewUser, getAllusernames, checkIfUserExist };
+export default {
+  getUserByName,
+  getUserById,
+  addUser,
+  getAllusernames,
+  checkIfUserExist,
+};

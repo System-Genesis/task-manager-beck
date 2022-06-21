@@ -2,13 +2,10 @@ import userRepository from '../repositorys/user.repository';
 import {
   userInterface,
   usernamesInterface,
-  userAggregateInterface
+  userAggregateInterface,
 } from '../interfaces/user.interface';
-import managerData from '../data/managerData';
-import { userData } from '../data/userData';
 import pageManager from '../managers/page.manager';
-import config from '../config/config'
-
+import config from '../config/config';
 
 const crypto = require('crypto');
 
@@ -22,12 +19,6 @@ function encrypt(val: string, ENC_KEY: Buffer, IV: Buffer) {
 const initializationVector = Buffer.from(config.initializationVector); // some string with lenth of 16
 const secretKey = Buffer.from(config.secretKey); // some string with lenth of 32
 
-const addUser = async (user: userInterface) => {
-  user.password = encrypt(user.password, secretKey, initializationVector);
-  const newUser = await userRepository.addUser(user);
-  return newUser;
-};
-
 const getUser = async (name: string, password: string) => {
   const user: userAggregateInterface = await userRepository.getAggragateUser(
     name,
@@ -36,28 +27,18 @@ const getUser = async (name: string, password: string) => {
   return user;
 };
 
-const getData = (user: userInterface) => {
-  // TODO: define data interface and return it
-  if (user.rule == 'manager') {
-    // TODO: rule => role
-    return managerData;
-  }
-  return userData;
-};
-
 const getUserById = async (userId: string) => {
   const user: userInterface = await userRepository.getUserById(userId);
   return user;
 };
 
-const addNewUser = async (user: userInterface, pages: any) => {
+const addUser = async (user: userInterface, pages: any) => {
   user.password = encrypt(user.password, secretKey, initializationVector);
   const newPages: string[] = [];
   for (let i = 0; i < pages.length; i++) {
     newPages.push((await pageManager.addPage(pages[i]))._id as string);
   }
-  console.log(newPages);
-  const newUser = await userRepository.addNewUser(user, newPages);
+  const newUser = await userRepository.addUser(user, newPages);
   return newUser;
 };
 
@@ -73,11 +54,9 @@ const checkIfUserExist = async (userName: string) => {
 };
 
 export default {
-  addUser,
   getUser,
-  getData,
   getUserById,
-  addNewUser,
+  addUser,
   getAllusernames,
   checkIfUserExist,
 };

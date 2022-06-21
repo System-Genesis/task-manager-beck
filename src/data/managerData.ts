@@ -17,14 +17,14 @@ const managerData = [
         },
         name: 'splitter/source/:source',
         select: 'select',
-        toolTip: 'קבלת מידע גולמי לפי מקור'
+        toolTip: 'קבלת מידע גולמי לפי מקור',
       },
       {
         title: 'all from splitter',
         params: {},
         name: 'splitter/all',
         message: 'זהירות!! בקשה כבדה ',
-        toolTip: 'קבלת כל המידע הגולמי מכל המקורות'
+        toolTip: 'קבלת כל המידע הגולמי מכל המקורות',
       },
       {
         title: 'identifier and source from splitter',
@@ -41,7 +41,7 @@ const managerData = [
         },
         name: 'splitter/identifier/:identifier/source/:source',
         select: 'select',
-        toolTip: 'קבלת מידע גולמי לפי מזהה אישי ומקור'
+        toolTip: 'קבלת מידע גולמי לפי מזהה אישי ומקור',
       },
       {
         title: 'identifier from splitter',
@@ -49,7 +49,7 @@ const managerData = [
           identifier: 'number',
         },
         name: 'splitter/identifier/:identifier',
-        toolTip: 'קבלת מידע גולמי לפי מזהה אישי'
+        toolTip: 'קבלת מידע גולמי לפי מזהה אישי',
       },
       {
         title: 'source from mergedUsers',
@@ -65,15 +65,14 @@ const managerData = [
         },
         name: 'mergedUsers/source/:source',
         select: 'select',
-        toolTip: 'קבלת מידע גולמי לפי מקור לאחר עיבוד ראשוני'
+        toolTip: 'קבלת מידע גולמי לפי מקור לאחר עיבוד ראשוני',
       },
       {
         title: 'all from mergedUsers',
         params: {},
         name: 'mergedUsers/all',
         message: 'זהירות!! בקשה כבדה ',
-        toolTip: 'קבלת כל המידע הגולמי מכל המקורות לאחר עיבוד ראשוני'
-
+        toolTip: 'קבלת כל המידע הגולמי מכל המקורות לאחר עיבוד ראשוני',
       },
       {
         title: 'identifier from mergedUsers',
@@ -81,7 +80,7 @@ const managerData = [
           identifier: 'number',
         },
         name: 'mergedUsers/identifier/:identifier',
-        toolTip: 'קבלת מידע גולמי לפי מזהה אישי לאחר עיבוד ראשוני'
+        toolTip: 'קבלת מידע גולמי לפי מזהה אישי לאחר עיבוד ראשוני',
       },
       {
         title: 'by date from mergedUsers',
@@ -89,7 +88,7 @@ const managerData = [
           byDate: 'date',
         },
         name: 'mergedUsers/byDate/:byDate',
-        toolTip: 'קבלת מידע גולמי לפי תאריך לאחר עיבוד ראשוני'
+        toolTip: 'קבלת מידע גולמי לפי תאריך לאחר עיבוד ראשוני',
       },
     ],
   },
@@ -111,13 +110,13 @@ const managerData = [
         },
         name: 'splitter/source/:source',
         select: 'select',
-        toolTip: 'הרצת מידע גולמי לפי מקור'
+        toolTip: 'הרצת מידע גולמי לפי מקור',
       },
       {
         title: 'all from splitter',
         params: {},
         name: 'splitter/all',
-        toolTip: 'הרצת כל המידע הגולמי מכל המקורות'
+        toolTip: 'הרצת כל המידע הגולמי מכל המקורות',
       },
       {
         title: 'identifier and source from splitter',
@@ -134,7 +133,7 @@ const managerData = [
         },
         name: 'splitter/identifier/:identifier/source/:source',
         select: 'select',
-        toolTip: 'הרצת מידע גולמי לפי מזהה אישי ומקור'
+        toolTip: 'הרצת מידע גולמי לפי מזהה אישי ומקור',
       },
       {
         title: 'identifier from splitter',
@@ -142,8 +141,7 @@ const managerData = [
           identifier: 'number',
         },
         name: 'splitter/identifier/:identifier',
-        toolTip: 'הרצת מידע גולמי לפי מזהה אישי'
-
+        toolTip: 'הרצת מידע גולמי לפי מזהה אישי',
       },
       {
         title: 'recovery of source',
@@ -159,13 +157,13 @@ const managerData = [
         },
         name: 'recovery/source/:source',
         select: 'select',
-        toolTip: 'הרצת תהליך עדכון של המידע לפי מקור'
+        toolTip: 'הרצת תהליך עדכון של המידע לפי מקור',
       },
       {
         title: 'recovery of all',
         params: {},
         name: 'recovery/all',
-        toolTip: 'הרצת תהליך עדכון של המידע מכל המקורות'
+        toolTip: 'הרצת תהליך עדכון של המידע מכל המקורות',
       },
       {
         title: 'recovery of identifier',
@@ -173,7 +171,7 @@ const managerData = [
           identifier: 'number',
         },
         name: 'recovery/identifier/:identifier',
-        toolTip: 'הרצת תהליך עדכון של המידע לפי מזהה אישי'
+        toolTip: 'הרצת תהליך עדכון של המידע לפי מזהה אישי',
       },
       {
         title: 'recovery of date',
@@ -181,7 +179,7 @@ const managerData = [
           byDate: 'date',
         },
         name: 'recovery/byDate/:byDate',
-        toolTip: 'הרצת תהליך עדכון של המידע לפי תאריך'
+        toolTip: 'הרצת תהליך עדכון של המידע לפי תאריך',
       },
       {
         title: 'daily',
@@ -196,15 +194,13 @@ const managerData = [
         message: '.',
         select: 'multiple',
         type: 'body',
-        toolTip: 'קביעת זמן הרצת תהליך העדכון של המידע'
+        toolTip: 'קביעת זמן הרצת תהליך העדכון של המידע',
       },
     ],
   },
 ];
 
 export default managerData;
-
-
 
 // [
 //   {
@@ -249,7 +245,7 @@ export default managerData;
 //         '_id': '$_id',
 //         'username': '$username',
 //         'password': '$password',
-//         'rule': '$rule'
+//         'role': '$role'
 //       },
 //       'pages': {
 //         '$push': {
@@ -263,7 +259,7 @@ export default managerData;
 //       '_id': '$_id._id',
 //       'username': '$_id.username',
 //       'password': '$_id.password',
-//       'rule': '$_id.rule',
+//       'role': '$_id.role',
 //       'pages': '$pages'
 //     }
 //   }

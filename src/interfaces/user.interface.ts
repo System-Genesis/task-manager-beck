@@ -1,9 +1,9 @@
-import {openPageInterface} from '../interfaces/page.interface';
+import { openPageInterface } from '../interfaces/page.interface';
 
 interface userInterface {
   username: string;
   password: string;
-  rule: string;
+  role: string;
   pages?: string[];
 }
 
@@ -14,7 +14,7 @@ interface usernamesInterface {
 interface userAggregateInterface {
   username: string;
   password: string;
-  rule: string;
+  role: string;
   pages: openPageInterface[];
 }
 

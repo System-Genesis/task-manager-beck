@@ -2,9 +2,9 @@ interface btnInterface {
   title: String;
   params: Object;
   name: String;
-  select: String;
-  message: String;
-  type: String;
+  select?: String;
+  message?: String;
+  type?: String;
   methods: String;
 }
 

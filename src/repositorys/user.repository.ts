@@ -1,12 +1,9 @@
 import userModel from '../mongo/userModel';
-import { userInterface, usernamesInterface, userAggregateInterface } from '../interfaces/user.interface';
-// import pageInterface from '../interfaces/page.interface';
-
-const addUser = async (newUser: userInterface) => {
-  const user = new userModel(newUser);
-  await user.save();
-  return user;
-};
+import {
+  userInterface,
+  usernamesInterface,
+  userAggregateInterface,
+} from '../interfaces/user.interface';
 
 const getUser = async (
   username: string,
@@ -19,10 +16,13 @@ const getUserById = async (userId: string): Promise<userInterface> => {
   return await userModel.findById(userId).lean();
 };
 
-const getAggragateUser = async (username: string,password: string): Promise<userAggregateInterface> => {
+const getAggragateUser = async (
+  username: string,
+  password: string
+): Promise<userAggregateInterface> => {
   const user = await userModel.aggregate([
     {
-      $match: { username,password },
+      $match: { username, password },
     },
     {
       $lookup: {
@@ -51,7 +51,7 @@ const getAggragateUser = async (username: string,password: string): Promise<user
           _id: '$_id',
           username: '$username',
           password: '$password',
-          rule: '$rule',
+          role: '$role',
         },
         pages: {
           $push: {
@@ -66,7 +66,7 @@ const getAggragateUser = async (username: string,password: string): Promise<user
         _id: '$_id._id',
         username: '$_id.username',
         password: '$_id.password',
-        rule: '$_id.rule',
+        role: '$_id.role',
         pages: '$pages',
       },
     },
@@ -75,11 +75,11 @@ const getAggragateUser = async (username: string,password: string): Promise<user
   return user[0];
 };
 
-const addNewUser = async (newUser: userInterface, newPages: string[]) => {
+const addUser = async (newUser: userInterface, newPages: string[]) => {
   const user = {
     username: newUser.username,
     password: newUser.password,
-    rule: newUser.rule,
+    role: newUser.role,
     pages: newPages,
   };
   const userNew = new userModel(user);
@@ -92,16 +92,19 @@ const getAllusernames = async (): Promise<usernamesInterface[]> => {
 };
 
 const checkIfUserExist = async (username: string): Promise<boolean> => {
-  const userExist =  await userModel.exists({username: username});
-  if(userExist) {
+  const userExist = await userModel.exists({ username: username });
+  if (userExist) {
     return true;
-  }
-  else { 
+  } else {
     return false;
   }
-
 };
 
-
-
-export default { addUser, getUser, getUserById, addNewUser, getAggragateUser, getAllusernames, checkIfUserExist };
+export default {
+  getUser,
+  getUserById,
+  addUser,
+  getAggragateUser,
+  getAllusernames,
+  checkIfUserExist,
+};

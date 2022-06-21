@@ -8,13 +8,11 @@ const baseUrl = config.trakingURL;
 const buildRequest = async (
   requestType: string,
   url: string,
-  requestParams: any
+  requestParams?: object 
 ) => {
   const fullUrl = `${baseUrl}${url}`;
   console.log(fullUrl);
   
-
-  // TODO: is condition necessary? req.body.params is either empty, never undefined?
   const request = requestParams
     ? await axios[requestType.toLowerCase()](fullUrl, requestParams)
     : await axios[requestType.toLowerCase()](fullUrl);

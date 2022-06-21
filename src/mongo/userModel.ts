@@ -6,12 +6,14 @@ const userSchema = new mongoose.Schema(
   {
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    rule: { type: String, enum: ['manager', 'user'], required: true },
-    pages: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'pages',
-      required: true,
-    }],
+    role: { type: String, enum: ['manager', 'user'], required: true },
+    pages: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'pages',
+        required: true,
+      },
+    ],
   },
   {
     versionKey: false,
