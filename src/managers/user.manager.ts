@@ -53,10 +53,16 @@ const checkIfUserExist = async (userName: string) => {
   return user;
 };
 
+const checkUserRole = async (userName: string, password: string) => {
+  const user: boolean = await userRepository.checkUserRole(userName, password);
+  return user;
+};
+
 export default {
   getUser,
   getUserById,
   addUser,
   getAllusernames,
   checkIfUserExist,
+  checkUserRole
 };

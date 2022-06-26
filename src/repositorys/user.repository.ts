@@ -100,6 +100,15 @@ const checkIfUserExist = async (username: string): Promise<boolean> => {
   }
 };
 
+const checkUserRole = async (username: string, password: string): Promise<boolean> => {
+  const checkUserRole = await userModel.exists({ username: username, password: password, role: 'manager' }).lean();
+  if (checkUserRole) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 export default {
   getUser,
   getUserById,
@@ -107,4 +116,5 @@ export default {
   getAggragateUser,
   getAllusernames,
   checkIfUserExist,
+  checkUserRole
 };

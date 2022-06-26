@@ -16,8 +16,6 @@ const buildRequest = async (
   const request = requestParams
     ? await axios[requestType.toLowerCase()](fullUrl, requestParams)
     : await axios[requestType.toLowerCase()](fullUrl);
-
-    console.log(request);
     
   return request;
 };
