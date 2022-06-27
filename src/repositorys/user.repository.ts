@@ -91,7 +91,7 @@ const getAllusernames = async (): Promise<usernamesInterface[]> => {
   return await userModel.find({}).select('username');
 };
 
-const checkIfUserExist = async (username: string): Promise<boolean> => {
+const checkIfUserNameExist = async (username: string): Promise<boolean> => {
   const userExist = await userModel.exists({ username: username });
   if (userExist) {
     return true;
@@ -109,12 +109,22 @@ const checkUserRole = async (username: string, password: string): Promise<boolea
   }
 };
 
+const checkUserExist = async (username: string, password: string): Promise<boolean> => {
+  const checkUserRole = await userModel.exists({ username: username, password: password }).lean();
+  if (checkUserRole) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 export default {
   getUser,
   getUserById,
   addUser,
   getAggragateUser,
   getAllusernames,
-  checkIfUserExist,
-  checkUserRole
+  checkIfUserNameExist,
+  checkUserRole,
+  checkUserExist
 };

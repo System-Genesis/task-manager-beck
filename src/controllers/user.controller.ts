@@ -60,11 +60,11 @@ const getAllusernames = async (_req: Request, res: Response) => {
   }
 };
 
-const checkIfUserExist = async (req: Request, res: Response) => {
+const checkIfUserNameExist = async (req: Request, res: Response) => {
   try {
     const userName: string = req.params.username;
 
-    const answer: boolean = await userManager.checkIfUserExist(userName);
+    const answer: boolean = await userManager.checkIfUserNameExist(userName);
     res.send(answer);
   } catch (err: any) {
     res.status(500).json({ message: err.message });
@@ -83,11 +83,24 @@ const checkUserRole = async (req: Request, res: Response) => {
   }
 };
 
+const checkUserExist = async (req: Request, res: Response) => {
+  try {
+    const userName: string = req.body.username;
+    const password: string = req.body.password;
+
+    const answer: boolean = await userManager.checkUserExist(userName, password);
+    res.send(answer);
+  } catch (err: any) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 export default {
   getUserByName,
   getUserById,
   addUser,
   getAllusernames,
-  checkIfUserExist,
-  checkUserRole
+  checkIfUserNameExist,
+  checkUserRole,
+  checkUserExist
 };

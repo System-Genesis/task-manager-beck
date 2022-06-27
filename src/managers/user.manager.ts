@@ -48,8 +48,8 @@ const getAllusernames = async () => {
   return getAllusernames;
 };
 
-const checkIfUserExist = async (userName: string) => {
-  const user: boolean = await userRepository.checkIfUserExist(userName);
+const checkIfUserNameExist = async (userName: string) => {
+  const user: boolean = await userRepository.checkIfUserNameExist(userName);
   return user;
 };
 
@@ -58,11 +58,17 @@ const checkUserRole = async (userName: string, password: string) => {
   return user;
 };
 
+const checkUserExist = async (userName: string, password: string) => {
+  const user: boolean = await userRepository.checkUserExist(userName, password);
+  return user;
+};
+
 export default {
   getUser,
   getUserById,
   addUser,
   getAllusernames,
-  checkIfUserExist,
-  checkUserRole
+  checkIfUserNameExist,
+  checkUserRole,
+  checkUserExist
 };
