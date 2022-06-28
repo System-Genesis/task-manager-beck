@@ -4,10 +4,6 @@ import config from '../config/config';
 /**
  * Connect to mongo
  */
-export default async () => {
-    console.log(config.mongoDbPath);
-    
-const opt : any= { useNewUrlParser: true, useUnifiedTopology: true }
-    await mongoose.connect(config.mongoDbPath, opt);
-
+export default async function connectToMongo() {
+  await mongoose.connect(config.mongoDbPath);
 };

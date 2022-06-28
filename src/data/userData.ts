@@ -17,15 +17,17 @@ export const userData = [
         },
         name: 'splitter/source/:source',
         select: 'select',
+        toolTip: 'קבלת מידע גולמי לפי מקור',
       },
       {
         title: 'all from splitter',
         params: {},
         name: 'splitter/all',
         message: 'זהירות!! בקשה כבדה ',
+        toolTip: 'קבלת כל המידע הגולמי מכל המקורות',
       },
       {
-        title: 'identifier & source from splitter',
+        title: 'identifier and source from splitter',
         params: {
           identifier: 'number',
           source: [
@@ -39,6 +41,7 @@ export const userData = [
         },
         name: 'splitter/identifier/:identifier/source/:source',
         select: 'select',
+        toolTip: 'קבלת מידע גולמי לפי מזהה אישי ומקור',
       },
       {
         title: 'identifier from splitter',
@@ -46,6 +49,7 @@ export const userData = [
           identifier: 'number',
         },
         name: 'splitter/identifier/:identifier',
+        toolTip: 'קבלת מידע גולמי לפי מזהה אישי',
       },
       {
         title: 'source from mergedUsers',
@@ -61,12 +65,14 @@ export const userData = [
         },
         name: 'mergedUsers/source/:source',
         select: 'select',
+        toolTip: 'קבלת מידע גולמי לפי מקור לאחר עיבוד ראשוני',
       },
       {
         title: 'all from mergedUsers',
         params: {},
         name: 'mergedUsers/all',
         message: 'זהירות!! בקשה כבדה ',
+        toolTip: 'קבלת כל המידע הגולמי מכל המקורות לאחר עיבוד ראשוני',
       },
       {
         title: 'identifier from mergedUsers',
@@ -74,6 +80,7 @@ export const userData = [
           identifier: 'number',
         },
         name: 'mergedUsers/identifier/:identifier',
+        toolTip: 'קבלת מידע גולמי לפי מזהה אישי לאחר עיבוד ראשוני',
       },
       {
         title: 'by date from mergedUsers',
@@ -81,6 +88,7 @@ export const userData = [
           byDate: 'date',
         },
         name: 'mergedUsers/byDate/:byDate',
+        toolTip: 'קבלת מידע גולמי לפי תאריך לאחר עיבוד ראשוני',
       },
     ],
   },

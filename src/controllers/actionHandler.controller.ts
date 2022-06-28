@@ -10,10 +10,8 @@ const actionHandler = async (req: Request, res: Response) => {
     const requestParams: object = req.body.requestParams;
     const url: string = req.body.url
     
-    const info = await requestHandler.buildRequest(requestType, url, requestParams);
-    res.send(info.data);
-    console.log(info.data);
-    
+    const info = await requestHandler.buildRequest(requestType, url, requestParams);    
+    res.send(info.data);    
   } catch (err: any) {
     res.status(err?.response?.status || 500).json({ message: err.message });
   }

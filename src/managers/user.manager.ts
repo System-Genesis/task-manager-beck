@@ -1,7 +1,12 @@
 import userRepository from '../repositorys/user.repository';
-import userInterafce from '../interfaces/user.interface';
-import managerData from '../data/managerData';
-import { userData } from '../data/userData';
+import {
+  userInterface,
+  usernamesInterface,
+  userAggregateInterface,
+} from '../interfaces/user.interface';
+import pageManager from '../managers/page.manager';
+import config from '../config/config';
+
 const crypto = require('crypto');
 
 function encrypt(val: string, ENC_KEY: Buffer, IV: Buffer) {
@@ -11,33 +16,59 @@ function encrypt(val: string, ENC_KEY: Buffer, IV: Buffer) {
   return encrypted;
 }
 
-const initializationVector = Buffer.from('1234567890123456'); // some string with lenth of 16
-const secretKey = Buffer.from('12345678901234561234567890123456'); // some string with lenth of 32
-
-const addUser = async (dacument: userInterafce) => {
-  dacument.password = encrypt(
-    dacument.password,
-    secretKey,
-    initializationVector
-  );
-  const newUser = await userRepository.addUser(dacument);
-  return newUser;
-};
+const initializationVector = Buffer.from(config.initializationVector); // some string with lenth of 16
+const secretKey = Buffer.from(config.secretKey); // some string with lenth of 32
 
 const getUser = async (name: string, password: string) => {
-  const user: userInterafce = await userRepository.getUser(
+  const user: userAggregateInterface = await userRepository.getAggragateUser(
     name,
     encrypt(password, secretKey, initializationVector)
   );
-
   return user;
 };
 
-const getData = (user: userInterafce) => {
-  if (user.rule == 'manager') {
-    return managerData;
-  }
-  return userData;
+const getUserById = async (userId: string) => {
+  const user: userInterface = await userRepository.getUserById(userId);
+  return user;
 };
 
-export default { addUser, getUser, getData };
+const addUser = async (user: userInterface, pages: any) => {
+  user.password = encrypt(user.password, secretKey, initializationVector);
+  const newPages: string[] = [];
+  for (let i = 0; i < pages.length; i++) {
+    newPages.push((await pageManager.addPage(pages[i]))._id as string);
+  }
+  const newUser = await userRepository.addUser(user, newPages);
+  return newUser;
+};
+
+const getAllusernames = async () => {
+  const getAllusernames: usernamesInterface[] =
+    await userRepository.getAllusernames();
+  return getAllusernames;
+};
+
+const checkIfUserNameExist = async (userName: string) => {
+  const user: boolean = await userRepository.checkIfUserNameExist(userName);
+  return user;
+};
+
+const checkUserRole = async (userName: string, password: string) => {
+  const user: boolean = await userRepository.checkUserRole(userName, password);
+  return user;
+};
+
+const checkUserExist = async (userName: string, password: string) => {
+  const user: boolean = await userRepository.checkUserExist(userName, password);
+  return user;
+};
+
+export default {
+  getUser,
+  getUserById,
+  addUser,
+  getAllusernames,
+  checkIfUserNameExist,
+  checkUserRole,
+  checkUserExist
+};

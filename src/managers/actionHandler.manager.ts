@@ -1,18 +1,22 @@
 import axios from 'axios';
+import config from '../config/config'
 
-const baseUrl = 'http://genesis-tracking.branch-yesodot.org/api/';
+// TODO: move file to repo of task manager and seperate to service task manager
+
+const baseUrl = config.trakingURL; 
 
 const buildRequest = async (
   requestType: string,
   url: string,
-  requestParams: any
+  requestParams?: object 
 ) => {
   const fullUrl = `${baseUrl}${url}`;
+  console.log(fullUrl);
   
   const request = requestParams
-  ? await axios[requestType](fullUrl, requestParams)
-  : await axios[requestType](fullUrl);
-  
+    ? await axios[requestType.toLowerCase()](fullUrl, requestParams)
+    : await axios[requestType.toLowerCase()](fullUrl);
+    
   return request;
 };
 

@@ -3,7 +3,12 @@ import userController from '../controllers/user.controller';
 
 const router = express.Router();
 
-router.post('/', userController.addUser);
+router.post('/new', userController.addUser);
 router.get('/', userController.getUserByName);
+router.get('/id/:id', userController.getUserById);
+router.get('/username', userController.getAllusernames);
+router.get('/username/exist/:username', userController.checkIfUserNameExist);
+router.post('/checkuserrole', userController.checkUserRole);
+router.post('/checkuserexist', userController.checkUserExist);
 
 export default router;
