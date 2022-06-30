@@ -1,0 +1,226 @@
+[
+  {
+    "title": "Get source from splitter",
+    "params": {
+      "source": ["aka", "sf_name", "es_name", "city_name", "adnn_name", "mir_name"]
+    },
+    "name": "splitter/source/:source",
+    "select": "select",
+    "methods": "Get",
+    "toolTip": "קבלת מידע גולמי לפי מקור"
+  },
+  {
+    "title": "Get identifier and source from splitter",
+    "params": {
+      "identifier": "number",
+      "source": ["aka", "sf_name", "es_name", "city_name", "adnn_name", "mir_name"]
+    },
+    "name": "splitter/identifier/:identifier/source/:source",
+    "select": "select",
+    "methods": "Get",
+    "toolTip": "קבלת מידע גולמי לפי מזהה אישי ומקור"
+  },
+  {
+    "title": "Get all from splitter",
+    "name": "splitter/all",
+    "message": "זהירות!! בקשה כבדה ",
+    "methods": "Get",
+    "params": {},
+    "toolTip": "קבלת כל המידע הגולמי מכל המקורות"
+  },
+  {
+    "title": "Get identifier from splitter",
+    "params": {
+      "identifier": "number"
+    },
+    "name": "splitter/identifier/:identifier",
+    "methods": "Get",
+    "toolTip": "קבלת מידע גולמי לפי מזהה אישי"
+  },
+  {
+    "title": "Get all from mergedUsers",
+    "name": "mergedUsers/all",
+    "message": "זהירות!! בקשה כבדה ",
+    "methods": "Get",
+    "params": {},
+    "toolTip": "קבלת כל המידע הגולמי מכל המקורות לאחר עויבוד ראשוני"
+  },
+  {
+    "title": "Get by date from mergedUsers",
+    "params": {
+      "byDate": "date"
+    },
+    "name": "mergedUsers/byDate/:byDate",
+    "methods": "Get",
+    "toolTip": "קבלת מידע גולמי לפי תאריך לאחר עיבוד ראשוני"
+  },
+  {
+    "title": "Get identifier from mergedUsers",
+    "params": {
+      "identifier": "number"
+    },
+    "name": "mergedUsers/identifier/:identifier",
+    "methods": "Get",
+    "toolTip": "קבלת מידע גולמי לפי מזהה אישי לאחר עיבוד ראשוני"
+  },
+  {
+    "title": "Get source from mergedUsers",
+    "params": {
+      "source": ["aka", "sf_name", "es_name", "city_name", "adnn_name", "mir_name"]
+    },
+    "name": "mergedUsers/source/:source",
+    "select": "select",
+    "methods": "Get",
+    "toolTip": "קבלת מידע גולמי לפי מקור לאחר עיבוד ראשוני"
+  },
+  {
+    "title": "Post all from splitter",
+    "name": "splitter/all",
+    "methods": "Post",
+    "params": {},
+    "toolTip": "הרצת כל המידע הגולמי מכל המקורות"
+  },
+  {
+    "title": "Post source from splitter",
+    "params": {
+      "source": ["aka", "sf_name", "es_name", "city_name", "adnn_name", "mir_name"]
+    },
+    "name": "splitter/source/:source",
+    "select": "select",
+    "methods": "Post",
+    "toolTip": "הרצת מידע גולמי לפי מקור"
+  },
+  {
+    "title": "Post identifier and source from splitter",
+    "params": {
+      "identifier": "number",
+      "source": ["aka", "sf_name", "es_name", "city_name", "adnn_name", "mir_name"]
+    },
+    "name": "splitter/identifier/:identifier/source/:source",
+    "select": "select",
+    "methods": "Post",
+    "toolTip": "הרצת מידע גולמי לפי מזהה אישי ומקור"
+  },
+  {
+    "title": "Post identifier from splitter",
+    "params": {
+      "identifier": "number"
+    },
+    "name": "splitter/identifier/:identifier",
+    "methods": "Post",
+    "toolTip": "הרצת מידע גולמי לפי מזהה אישי"
+  },
+  {
+    "title": "Post recovery of source",
+    "params": {
+      "source": ["aka", "sf_name", "es_name", "city_name", "adnn_name", "mir_name"]
+    },
+    "name": "recovery/source/:source",
+    "select": "select",
+    "methods": "Post",
+    "toolTip": "הרצת תהליך עדכון של המידע לפי מקור"
+  },
+  {
+    "title": "daily",
+    "params": {
+      "hour": [
+        1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0,
+        21.0, 22.0, 23.0, 24.0
+      ],
+      "minute": [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 40.0, 45.0, 50.0, 55.0]
+    },
+    "name": "daily",
+    "select": "multiple",
+    "message": " ",
+    "type": "body",
+    "methods": "Post",
+    "toolTip": "קביעת זמן הרצת תהליך העדכון של המידע"
+  },
+  {
+    "title": "Post recovery of date",
+    "params": {
+      "byDate": "date"
+    },
+    "name": "recovery/byDate/:byDate",
+    "methods": "Post",
+    "toolTip": "הרצת תהליך עדכון של המידע לפי תאריך"
+  },
+  {
+    "title": "Post recovery of identifier",
+    "params": {
+      "identifier": "number"
+    },
+    "name": "recovery/identifier/:identifier",
+    "methods": "Post",
+    "toolTip": "הרצת תהליך עדכון של המידע לפי מזהה אישי"
+  },
+  {
+    "title": "Post recovery of all",
+    "name": "recovery/all",
+    "methods": "Post",
+    "params": {},
+    "toolTip": "הרצת תהליך עדכון של המידע מכל המקורות"
+  },
+  {
+    "title": "Get digitalIdentity from splitter",
+    "params": {
+      "digitalIdentity": "string"
+    },
+    "name": "splitter/digitalIdentity/:digitalIdentity",
+    "methods": "Get",
+    "toolTip": "קבלת מידע גולמי לפי מזהה יוזרי"
+  },
+  {
+    "title": "Get digitalIdentity and source from splitter",
+    "params": {
+      "digitalIdentity": "string",
+      "source": ["aka", "sf_name", "es_name", "city_name", "adnn_name", "mir_name"]
+    },
+    "name": "splitter/digitalIdentity/:digitalIdentity/source/:source",
+    "methods": "Get",
+    "toolTip": " קבלת מידע גולמי לפי מזהה יוזרי ומקור",
+    "select": "select"
+  },
+  {
+    "title": "Post digitalIdentity from splitter",
+    "params": {
+      "digitalIdentity": "string"
+    },
+    "name": "splitter/digitalIdentity/:digitalIdentity",
+    "methods": "Post",
+    "toolTip": "הרצת מידע גולמי לפי מזהה יוזרי"
+  },
+  {
+    "title": "Post digitalIdentity and source from splitter",
+    "params": {
+      "digitalIdentity": "string",
+      "source": ["aka", "sf_name", "es_name", "city_name", "adnn_name", "mir_name"]
+    },
+    "name": "splitter/digitalIdentity/:digitalIdentity/source/:source",
+    "methods": "Post",
+    "toolTip": "הרצת מידע גולמי לפי מזהה יוזרי ומקור",
+    "select": "select"
+  },
+  {
+    "title": "Get digitalIdentity and source from mergedUsers",
+    "params": {
+      "digitalIdentity": "string",
+      "source": ["aka", "sf_name", "es_name", "city_name", "adnn_name", "mir_name"]
+    },
+    "name": "mergedUsers/source/:source/digitalIdentity/:digitalIdentity",
+    "methods": "Get",
+    "toolTip": "קבלת מידע גולמי לפי מזהה יוזרי ומקור לאחר עיבוד ראשוני",
+    "select": "select"
+  },
+  {
+    "title": "Post recovery of digitalIdentity and source",
+    "params": {
+      "digitalIdentity": "string",
+      "source": ["aka", "sf_name", "es_name", "city_name", "adnn_name", "mir_name"]
+    },
+    "name": "recovery/source/:source/digitalIdentity/:digitalIdentity",
+    "methods": "Post",
+    "toolTip": "הרצת מידע גולמי לפי מזהה יוזרי ומקור",
+    "select": "select"
+  }
+]
