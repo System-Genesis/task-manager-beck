@@ -4,6 +4,7 @@ import {
   userInterface,
   usernamesInterface,
   userAggregateInterface,
+  usernamesAndRolesInterface
 } from '../interfaces/user.interface';
 
 // GET http://localhost:3020/users/
@@ -60,6 +61,15 @@ const getAllusernames = async (_req: Request, res: Response) => {
   }
 };
 
+const getAllusernamesAndRoles = async (_req: Request, res: Response) => {
+  try {
+    const usernamesAndRoles: usernamesAndRolesInterface[] = await userManager.getAllusernamesAndRoles();
+    res.send(usernamesAndRoles);
+  } catch (err: any) {
+    res.status(err?.response?.status || 500).json({ message: err.message });
+  }
+};
+
 const checkIfUserNameExist = async (req: Request, res: Response) => {
   try {
     const userName: string = req.params.username;
@@ -100,6 +110,7 @@ export default {
   getUserById,
   addUser,
   getAllusernames,
+  getAllusernamesAndRoles,
   checkIfUserNameExist,
   checkUserRole,
   checkUserExist

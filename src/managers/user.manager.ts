@@ -3,6 +3,7 @@ import {
   userInterface,
   usernamesInterface,
   userAggregateInterface,
+  usernamesAndRolesInterface,
 } from '../interfaces/user.interface';
 import pageManager from '../managers/page.manager';
 import config from '../config/config';
@@ -48,6 +49,12 @@ const getAllusernames = async () => {
   return getAllusernames;
 };
 
+const getAllusernamesAndRoles = async () => {
+  const getAllusernamesAndRoles: usernamesAndRolesInterface[] =
+    await userRepository.getAllusernamesAndRoles();
+  return getAllusernamesAndRoles;
+};
+
 const checkIfUserNameExist = async (userName: string) => {
   const user: boolean = await userRepository.checkIfUserNameExist(userName);
   return user;
@@ -70,5 +77,6 @@ export default {
   getAllusernames,
   checkIfUserNameExist,
   checkUserRole,
-  checkUserExist
+  checkUserExist,
+  getAllusernamesAndRoles,
 };

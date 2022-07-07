@@ -3,6 +3,7 @@ import {
   userInterface,
   usernamesInterface,
   userAggregateInterface,
+  usernamesAndRolesInterface
 } from '../interfaces/user.interface';
 
 const getUser = async (
@@ -91,6 +92,10 @@ const getAllusernames = async (): Promise<usernamesInterface[]> => {
   return await userModel.find({}).select('username');
 };
 
+const getAllusernamesAndRoles = async (): Promise<usernamesAndRolesInterface[]> => {
+  return await userModel.find({}).select('username role');
+};
+
 const checkIfUserNameExist = async (username: string): Promise<boolean> => {
   const userExist = await userModel.exists({ username: username });
   if (userExist) {
@@ -126,5 +131,6 @@ export default {
   getAllusernames,
   checkIfUserNameExist,
   checkUserRole,
-  checkUserExist
+  checkUserExist,
+  getAllusernamesAndRoles
 };
