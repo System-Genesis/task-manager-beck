@@ -7,12 +7,12 @@ interface userInterface {
   pages?: string[];
 }
 
-interface usernamesInterface {
-  username: String;
+interface usernameInterface {
+  username: string;
 }
 
 interface usernamesAndRolesInterface {
-  username: String;
+  username: string;
   role: string;
 }
 
@@ -23,4 +23,9 @@ interface userAggregateInterface {
   pages: openPageInterface[];
 }
 
-export { userInterface, usernamesInterface, userAggregateInterface, usernamesAndRolesInterface };
+export {
+  userInterface,
+  usernameInterface,
+  userAggregateInterface,
+  usernamesAndRolesInterface,
+};

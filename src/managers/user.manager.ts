@@ -1,7 +1,7 @@
 import userRepository from '../repositorys/user.repository';
 import {
   userInterface,
-  usernamesInterface,
+  usernameInterface,
   userAggregateInterface,
   usernamesAndRolesInterface,
 } from '../interfaces/user.interface';
@@ -44,7 +44,7 @@ const addUser = async (user: userInterface, pages: any) => {
 };
 
 const getAllusernames = async () => {
-  const getAllusernames: usernamesInterface[] =
+  const getAllusernames: usernameInterface[] =
     await userRepository.getAllusernames();
   return getAllusernames;
 };
@@ -70,6 +70,14 @@ const checkUserExist = async (userName: string, password: string) => {
   return user;
 };
 
+const changeUserName = async (oldUserName: string, newUserName: string) => {
+  const username: boolean = await userRepository.changeUserName(
+    oldUserName,
+    newUserName
+  );
+  return username;
+};
+
 export default {
   getUser,
   getUserById,
@@ -79,4 +87,5 @@ export default {
   checkUserRole,
   checkUserExist,
   getAllusernamesAndRoles,
+  changeUserName,
 };

@@ -2,9 +2,9 @@ import { Request, Response } from 'express';
 import userManager from '../managers/user.manager';
 import {
   userInterface,
-  usernamesInterface,
+  usernameInterface,
   userAggregateInterface,
-  usernamesAndRolesInterface
+  usernamesAndRolesInterface,
 } from '../interfaces/user.interface';
 
 // GET http://localhost:3020/users/
@@ -54,7 +54,7 @@ const addUser = async (req: Request, res: Response) => {
 
 const getAllusernames = async (_req: Request, res: Response) => {
   try {
-    const usernames: usernamesInterface[] = await userManager.getAllusernames();
+    const usernames: usernameInterface[] = await userManager.getAllusernames();
     res.send(usernames);
   } catch (err: any) {
     res.status(err?.response?.status || 500).json({ message: err.message });
@@ -63,7 +63,8 @@ const getAllusernames = async (_req: Request, res: Response) => {
 
 const getAllusernamesAndRoles = async (_req: Request, res: Response) => {
   try {
-    const usernamesAndRoles: usernamesAndRolesInterface[] = await userManager.getAllusernamesAndRoles();
+    const usernamesAndRoles: usernamesAndRolesInterface[] =
+      await userManager.getAllusernamesAndRoles();
     res.send(usernamesAndRoles);
   } catch (err: any) {
     res.status(err?.response?.status || 500).json({ message: err.message });
@@ -98,7 +99,25 @@ const checkUserExist = async (req: Request, res: Response) => {
     const userName: string = req.body.username;
     const password: string = req.body.password;
 
-    const answer: boolean = await userManager.checkUserExist(userName, password);
+    const answer: boolean = await userManager.checkUserExist(
+      userName,
+      password
+    );
+    res.send(answer);
+  } catch (err: any) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+const changeUserName = async (req: Request, res: Response) => {
+  try {
+    const oldUserName: string = req.params.oldusername;
+    const newUserName: string = req.body.username;
+
+    const answer: boolean = await userManager.changeUserName(
+      oldUserName,
+      newUserName
+    );
     res.send(answer);
   } catch (err: any) {
     res.status(500).json({ message: err.message });
@@ -113,5 +132,6 @@ export default {
   getAllusernamesAndRoles,
   checkIfUserNameExist,
   checkUserRole,
-  checkUserExist
+  checkUserExist,
+  changeUserName,
 };

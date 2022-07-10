@@ -1,9 +1,9 @@
 import userModel from '../mongo/userModel';
 import {
   userInterface,
-  usernamesInterface,
+  usernameInterface,
   userAggregateInterface,
-  usernamesAndRolesInterface
+  usernamesAndRolesInterface,
 } from '../interfaces/user.interface';
 
 const getUser = async (
@@ -88,11 +88,13 @@ const addUser = async (newUser: userInterface, newPages: string[]) => {
   return userNew;
 };
 
-const getAllusernames = async (): Promise<usernamesInterface[]> => {
+const getAllusernames = async (): Promise<usernameInterface[]> => {
   return await userModel.find({}).select('username');
 };
 
-const getAllusernamesAndRoles = async (): Promise<usernamesAndRolesInterface[]> => {
+const getAllusernamesAndRoles = async (): Promise<
+  usernamesAndRolesInterface[]
+> => {
   return await userModel.find({}).select('username role');
 };
 
@@ -105,8 +107,13 @@ const checkIfUserNameExist = async (username: string): Promise<boolean> => {
   }
 };
 
-const checkUserRole = async (username: string, password: string): Promise<boolean> => {
-  const checkUserRole = await userModel.exists({ username: username, password: password, role: 'manager' }).lean();
+const checkUserRole = async (
+  username: string,
+  password: string
+): Promise<boolean> => {
+  const checkUserRole = await userModel
+    .exists({ username: username, password: password, role: 'manager' })
+    .lean();
   if (checkUserRole) {
     return true;
   } else {
@@ -114,9 +121,30 @@ const checkUserRole = async (username: string, password: string): Promise<boolea
   }
 };
 
-const checkUserExist = async (username: string, password: string): Promise<boolean> => {
-  const checkUserRole = await userModel.exists({ username: username, password: password }).lean();
+const checkUserExist = async (
+  username: string,
+  password: string
+): Promise<boolean> => {
+  const checkUserRole = await userModel
+    .exists({ username: username, password: password })
+    .lean();
   if (checkUserRole) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const changeUserName = async (
+  oldUserName: string,
+  newUserName: string
+  
+): Promise<boolean> => {
+  const changeUsername = await userModel.findOneAndUpdate(
+    { username: oldUserName },
+    { username: newUserName }
+  );
+  if (changeUsername && oldUserName !== newUserName && newUserName !== undefined) {
     return true;
   } else {
     return false;
@@ -132,5 +160,6 @@ export default {
   checkIfUserNameExist,
   checkUserRole,
   checkUserExist,
-  getAllusernamesAndRoles
+  getAllusernamesAndRoles,
+  changeUserName,
 };
